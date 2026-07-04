@@ -13,9 +13,9 @@ const ORDER = ['google', 'facebook', 'trustpilot', 'werkspot']
 
 function Stars() {
   return (
-    <span style={{ display: 'inline-flex', gap: 1 }}>
+    <span className="rb-stars">
       {[0, 1, 2, 3, 4].map((i) => (
-        <span key={i} style={{ color: '#FBBC04', fontSize: '0.95rem' }}>★</span>
+        <span key={i} className="rb-star">★</span>
       ))}
     </span>
   )
@@ -51,6 +51,7 @@ function Logo({ platform }: { platform: string }) {
   // werkspot — simple branded lettered badge
   return (
     <span
+      className="rb-werkspot"
       style={{
         width: 30,
         height: 30,
@@ -96,47 +97,97 @@ export default async function ReviewBadges() {
 
   if (visible.length === 0) return null
 
-  const cardStyle: React.CSSProperties = {
-    background: '#FFFFFF',
-    border: '1px solid var(--border)',
-    borderRadius: 16,
-    boxShadow: '0 10px 30px rgba(20,24,29,0.05)',
-    padding: '1.25rem 1.75rem',
-    textDecoration: 'none',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    gap: '0.4rem',
-    minWidth: 130,
-    flex: '0 1 150px',
-  }
-
   return (
-    <section style={{ background: 'transparent', padding: '2.5rem 1.5rem', position: 'relative', zIndex: 10 }}>
-      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1rem', maxWidth: 1000, margin: '0 auto' }}>
+    <section className="rb-section" style={{ background: 'transparent', padding: '2.5rem 1.5rem', position: 'relative', zIndex: 10 }}>
+      <style>{`
+        .rb-grid {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 1rem;
+          max-width: 1000px;
+          margin: 0 auto;
+        }
+        .rb-card {
+          background: #FFFFFF;
+          border: 1px solid var(--border);
+          border-radius: 16px;
+          box-shadow: 0 10px 30px rgba(20,24,29,0.05);
+          padding: 1.25rem 1.75rem;
+          text-decoration: none;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.4rem;
+          min-width: 130px;
+          flex: 0 1 150px;
+        }
+        .rb-rating {
+          font-family: var(--font-archivo);
+          font-weight: 800;
+          font-size: 1.75rem;
+          color: #1A1A1A;
+          line-height: 1.1;
+          margin-top: 0.5rem;
+        }
+        .rb-reviews {
+          font-size: 0.8rem;
+          color: #4A4A4A;
+          font-weight: 600;
+          margin-top: 0.2rem;
+          white-space: nowrap;
+        }
+        .rb-stars { display: inline-flex; gap: 1px; }
+        .rb-star { color: #FBBC04; font-size: 0.95rem; }
+
+        /* Mobile: force a single row instead of stacking, shrink everything to fit */
+        @media (max-width: 640px) {
+          .rb-section { padding: 1.75rem 0.6rem !important; }
+          .rb-grid { flex-wrap: nowrap !important; gap: 0.4rem !important; }
+          .rb-card {
+            flex: 1 1 0 !important;
+            min-width: 0 !important;
+            padding: 0.75rem 0.3rem !important;
+            border-radius: 10px !important;
+            gap: 0.15rem !important;
+          }
+          .rb-rating { font-size: 1.05rem !important; margin-top: 0.15rem !important; }
+          .rb-reviews { font-size: 0.56rem !important; margin-top: 0 !important; }
+          .rb-star { font-size: 0.5rem !important; }
+          .rb-logo svg { width: 20px !important; height: 20px !important; }
+          .rb-werkspot { width: 20px !important; height: 20px !important; font-size: 0.65rem !important; border-radius: 5px !important; }
+        }
+
+        @media (max-width: 380px) {
+          .rb-card { padding: 0.6rem 0.2rem !important; }
+          .rb-rating { font-size: 0.9rem !important; }
+          .rb-reviews { font-size: 0.5rem !important; }
+          .rb-logo svg { width: 17px !important; height: 17px !important; }
+          .rb-werkspot { width: 17px !important; height: 17px !important; font-size: 0.55rem !important; }
+        }
+      `}</style>
+      <div className="rb-grid">
         {visible.map((b) => {
           const hasUrl = typeof b.url === 'string' && b.url.trim() !== ''
           const inner = (
             <>
-              <Logo platform={b.platform} />
-              <span style={{ fontFamily: 'var(--font-archivo)', fontWeight: 800, fontSize: '1.75rem', color: '#1A1A1A', lineHeight: 1.1, marginTop: '0.5rem' }}>
-                {b.rating}
+              <span className="rb-logo" style={{ display: 'inline-flex' }}>
+                <Logo platform={b.platform} />
               </span>
+              <span className="rb-rating">{b.rating}</span>
               <Stars />
               {b.reviews.trim() !== '' && (
-                <span style={{ fontSize: '0.8rem', color: '#4A4A4A', fontWeight: 600, marginTop: '0.2rem' }}>
-                  {b.reviews} reviews
-                </span>
+                <span className="rb-reviews">{b.reviews} reviews</span>
               )}
             </>
           )
 
           return hasUrl ? (
-            <a key={b.platform} href={b.url} target="_blank" rel="noopener noreferrer" style={cardStyle}>
+            <a key={b.platform} href={b.url} target="_blank" rel="noopener noreferrer" className="rb-card">
               {inner}
             </a>
           ) : (
-            <div key={b.platform} style={cardStyle}>
+            <div key={b.platform} className="rb-card">
               {inner}
             </div>
           )
