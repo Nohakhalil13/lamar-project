@@ -67,6 +67,7 @@ export default function OffertePage() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const toggleDienst = (d: string) => {
     setForm(prev => ({
@@ -95,8 +96,9 @@ export default function OffertePage() {
       form.opmerkingen ? `Opmerkingen: ${form.opmerkingen}` : '',
     ].filter(Boolean);
 
+    setSubmitError('');
     try {
-      await fetch('/api/lead', {
+      const res = await fetch('/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -107,7 +109,15 @@ export default function OffertePage() {
           message: lines.join('\n'),
         }),
       });
-    } catch { /* ignore */ }
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error((data as { error?: string }).error ?? 'Verzenden mislukt.');
+      }
+    } catch (err) {
+      setLoading(false);
+      setSubmitError(err instanceof Error ? err.message : 'Verzenden mislukt. Probeer opnieuw.');
+      return;
+    }
 
     const waUrl = `https://wa.me/31630302033?text=${encodeURIComponent(lines.join('\n'))}`;
     setTimeout(() => {
@@ -362,6 +372,13 @@ export default function OffertePage() {
               <span>Uw gegevens zijn veilig bij ons en worden uitsluitend gebruikt voor het opstellen van uw offerte.</span>
             </div>
           </div>
+
+          {/* Submit error */}
+          {submitError && (
+            <p style={{ color: '#c0392b', fontFamily: 'var(--font-outfit)', fontSize: '0.9rem', margin: 0 }}>
+              {submitError}
+            </p>
+          )}
 
           {/* Submit */}
           <button

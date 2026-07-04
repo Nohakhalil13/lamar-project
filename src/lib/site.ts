@@ -4,7 +4,10 @@
  * NEXT_PUBLIC_SITE_URL; the fallback matches the production domain.
  */
 export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://lamar-renovatie.nl'
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.NEXT_PUBLIC_VERCEL_URL
+    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+    : 'https://www.lamarrenovatie.nl/')
 ).replace(/\/$/, '')
 
 export const SITE_NAME = 'LAMAR Stukadoor en Onderhoud'

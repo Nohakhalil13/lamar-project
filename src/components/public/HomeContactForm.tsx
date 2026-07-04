@@ -5,14 +5,49 @@ import { useState } from 'react';
 export default function HomeContactForm() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [error, setError] = useState('');
+  const [fields, setFields] = useState({
+    naam: '',
+    email: '',
+    telefoon: '',
+    woonplaats: '',
+    beschrijving: '',
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const set = (key: keyof typeof fields) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+    setFields(prev => ({ ...prev, [key]: e.target.value }));
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    setError('');
+
+    const message = [
+      fields.woonplaats ? `Woonplaats: ${fields.woonplaats}` : '',
+      fields.beschrijving,
+    ].filter(Boolean).join('\n\n');
+
+    try {
+      const res = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: fields.naam,
+          email: fields.email || undefined,
+          phone: fields.telefoon || undefined,
+          message,
+        }),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error((data as { error?: string }).error ?? 'Verzenden mislukt.');
+      }
       setSuccess(true);
-    }, 1500);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Verzenden mislukt. Probeer opnieuw.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -69,11 +104,15 @@ export default function HomeContactForm() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                  <input type="text" placeholder="Naam" required style={{ width: '100%', padding: '1rem', borderRadius: 4, border: '1px solid var(--border)', fontFamily: 'var(--font-outfit)', fontSize: '0.95rem', background: '#f5f5f5' }} />
-                  <input type="email" placeholder="E-mailadres" required style={{ width: '100%', padding: '1rem', borderRadius: 4, border: '1px solid var(--border)', fontFamily: 'var(--font-outfit)', fontSize: '0.95rem', background: '#f5f5f5' }} />
-                  <input type="tel" placeholder="Telefoonnummer" required style={{ width: '100%', padding: '1rem', borderRadius: 4, border: '1px solid var(--border)', fontFamily: 'var(--font-outfit)', fontSize: '0.95rem', background: '#f5f5f5' }} />
-                  <input type="text" placeholder="Woonplaats" required style={{ width: '100%', padding: '1rem', borderRadius: 4, border: '1px solid var(--border)', fontFamily: 'var(--font-outfit)', fontSize: '0.95rem', background: '#f5f5f5' }} />
-                  <textarea placeholder="Beschrijving opdracht" required rows={4} style={{ width: '100%', padding: '1rem', borderRadius: 4, border: '1px solid var(--border)', fontFamily: 'var(--font-outfit)', fontSize: '0.95rem', background: '#f5f5f5', resize: 'vertical' }}></textarea>
+                  <input type="text" placeholder="Naam" required value={fields.naam} onChange={set('naam')} style={{ width: '100%', padding: '1rem', borderRadius: 4, border: '1px solid var(--border)', fontFamily: 'var(--font-outfit)', fontSize: '0.95rem', background: '#f5f5f5' }} />
+                  <input type="email" placeholder="E-mailadres" value={fields.email} onChange={set('email')} style={{ width: '100%', padding: '1rem', borderRadius: 4, border: '1px solid var(--border)', fontFamily: 'var(--font-outfit)', fontSize: '0.95rem', background: '#f5f5f5' }} />
+                  <input type="tel" placeholder="Telefoonnummer" required value={fields.telefoon} onChange={set('telefoon')} style={{ width: '100%', padding: '1rem', borderRadius: 4, border: '1px solid var(--border)', fontFamily: 'var(--font-outfit)', fontSize: '0.95rem', background: '#f5f5f5' }} />
+                  <input type="text" placeholder="Woonplaats" required value={fields.woonplaats} onChange={set('woonplaats')} style={{ width: '100%', padding: '1rem', borderRadius: 4, border: '1px solid var(--border)', fontFamily: 'var(--font-outfit)', fontSize: '0.95rem', background: '#f5f5f5' }} />
+                  <textarea placeholder="Beschrijving opdracht" required rows={4} value={fields.beschrijving} onChange={set('beschrijving')} style={{ width: '100%', padding: '1rem', borderRadius: 4, border: '1px solid var(--border)', fontFamily: 'var(--font-outfit)', fontSize: '0.95rem', background: '#f5f5f5', resize: 'vertical' }}></textarea>
+
+                  {error && (
+                    <p style={{ color: '#c0392b', fontFamily: 'var(--font-outfit)', fontSize: '0.9rem', margin: 0 }}>{error}</p>
+                  )}
 
                   <button type="submit" disabled={loading} style={{ 
                     background: 'var(--teal2)', color: '#000', padding: '1.2rem', 
