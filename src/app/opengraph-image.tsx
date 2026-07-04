@@ -93,7 +93,7 @@ export default function OpengraphImage() {
               letterSpacing: '-2px',
               paddingBottom: 6,
               borderBottom: `10px solid ${ACCENT}`,
-              display: 'inline-flex',
+              display: 'flex',
             }}
           >
             van topkwaliteit.
