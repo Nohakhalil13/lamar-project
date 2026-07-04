@@ -31,7 +31,19 @@ export async function POST(req: NextRequest) {
   }
 
   const { name, email, phone, service, message } = parsed.data
-  await createLead({ name, email, phone, service, message, source: 'QUOTE' })
+
+  try {
+    await createLead({ name, email, phone, service, message, source: 'QUOTE' })
+  } catch (err) {
+    // The quote forms have no fallback channel (unlike /api/contact, which
+    // still emails via Resend), so a failed write here must not be reported
+    // to the person as a success — that's exactly what was hiding lost leads.
+    console.error('[api/lead] failed to persist lead:', err)
+    return NextResponse.json(
+      { error: 'Uw aanvraag kon niet worden opgeslagen. Probeer het opnieuw of neem contact op via WhatsApp.' },
+      { status: 500 }
+    )
+  }
 
   return NextResponse.json({ success: true })
 }
