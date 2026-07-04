@@ -15,48 +15,125 @@ export default function OpengraphImage() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          background: 'linear-gradient(135deg, #14181D 0%, #1A6B60 100%)',
-          padding: '80px',
+          background: '#ffffff',
+          padding: '70px 80px',
           fontFamily: 'sans-serif',
+          position: 'relative',
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-          <div
-            style={{
-              width: 18,
-              height: 18,
-              borderRadius: 9,
-              background: '#2ABFA8',
-            }}
-          />
-          <div
-            style={{
-              fontSize: 30,
-              letterSpacing: 8,
-              textTransform: 'uppercase',
-              color: '#2ABFA8',
+        {/* Top teal bar */}
+        <div style={{
+          position: 'absolute',
+          top: 0, left: 0, right: 0,
+          height: 12,
+          background: '#2E8B7A',
+          display: 'flex',
+        }} />
+
+        {/* Top: Logo wordmark */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
+          {/* House icon */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+            <svg width="72" height="66" viewBox="0 0 72 66" fill="none">
+              <polygon points="36,4 68,30 64,30 64,62 8,62 8,30 4,30" fill="none" stroke="#2E8B7A" strokeWidth="4" strokeLinejoin="round"/>
+              <rect x="28" y="38" width="16" height="24" fill="#4A1560" rx="2"/>
+              <rect x="30" y="14" width="12" height="10" fill="#4A1560" rx="1"/>
+            </svg>
+          </div>
+          {/* Brand name */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+            <div style={{
+              fontSize: 58,
+              fontWeight: 900,
+              color: '#4A1560',
+              letterSpacing: '-1px',
+              lineHeight: 1,
+              fontStyle: 'italic',
+            }}>
+              Lamar
+            </div>
+            <div style={{
+              fontSize: 18,
               fontWeight: 700,
-            }}
-          >
-            Lamar
+              color: '#2E8B7A',
+              letterSpacing: 2,
+              textTransform: 'uppercase',
+            }}>
+              Stukadoor en Renovatie
+            </div>
           </div>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <div style={{ fontSize: 76, fontWeight: 800, color: '#FFFFFF', lineHeight: 1.05 }}>
-            Stukadoor &amp;
+        {/* Middle: Main headline */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+          <div style={{
+            fontSize: 72,
+            fontWeight: 900,
+            color: '#1a1a1a',
+            lineHeight: 1.05,
+            letterSpacing: '-2px',
+          }}>
+            Stucwerk &amp; Schilderwerk
           </div>
-          <div style={{ fontSize: 76, fontWeight: 800, color: '#FFFFFF', lineHeight: 1.05 }}>
-            Onderhoud
+          <div style={{
+            fontSize: 72,
+            fontWeight: 900,
+            color: '#2E8B7A',
+            lineHeight: 1.05,
+            letterSpacing: '-2px',
+          }}>
+            van topkwaliteit.
           </div>
-          <div style={{ fontSize: 30, color: 'rgba(255,255,255,0.75)', marginTop: 28, maxWidth: 820 }}>
-            Stucwerk · Interieurafwerking · Woningrenovatie — door heel Nederland
+          <div style={{
+            fontSize: 26,
+            color: '#555',
+            marginTop: 8,
+            fontWeight: 400,
+            letterSpacing: '0.2px',
+          }}>
+            Vakkundig stucwerk · Renovatie · Interieurbouw — door heel Nederland
           </div>
         </div>
 
-        <div style={{ display: 'flex', fontSize: 26, color: 'rgba(255,255,255,0.6)' }}>
-          200+ projecten voltooid · Kwaliteit die spreekt voor zich
+        {/* Bottom bar */}
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}>
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 32,
+            fontSize: 22,
+            color: '#666',
+          }}>
+            <span>✓ Gratis offerte</span>
+            <span>✓ Zelfde dag reactie</span>
+            <span>✓ 200+ projecten</span>
+          </div>
+          <div style={{
+            fontSize: 22,
+            fontWeight: 700,
+            color: '#2E8B7A',
+            letterSpacing: 1,
+          }}>
+            lamarrenovatie.nl
+          </div>
         </div>
+
+        {/* Bottom teal bar */}
+        <div style={{
+          position: 'absolute',
+          bottom: 0, left: 0, right: 0,
+          height: 8,
+          background: '#4A1560',
+          display: 'flex',
+        }} />
       </div>
     ),
     { ...size }

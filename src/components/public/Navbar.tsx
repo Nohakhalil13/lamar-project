@@ -68,12 +68,8 @@ export default function Navbar({ lang }: { lang: Lang }) {
       <nav style={navStyle}>
         {/* Left: logo */}
         <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
-            <img src="/lamar_icon.svg" alt="LAMAR" style={{ height: 42, width: 'auto', display: 'block' }} />
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <span style={{ fontFamily: 'var(--font-archivo)', fontWeight: 800, fontSize: '1.5rem', letterSpacing: '0.02em', color: 'var(--white)', lineHeight: 1 }}>LAMAR</span>
-              <span style={{ fontFamily: 'var(--font-outfit)', fontWeight: 600, fontSize: '0.55rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--white2)', lineHeight: 1, marginTop: 4 }}>Stukadoor en Onderhoud</span>
-            </div>
+          <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+            <img src="/images/logo.png" alt="LAMAR Stukadoor en Renovatie" style={{ height: 52, width: 'auto', display: 'block' }} />
           </Link>
         </div>
 

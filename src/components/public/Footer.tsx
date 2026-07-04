@@ -153,16 +153,8 @@ export default async function Footer({ lang }: { lang: Lang }) {
       >
         {/* Brand + contact */}
         <div>
-          <div
-            style={{
-              fontFamily: 'var(--font-archivo)',
-              fontWeight: 800,
-              fontSize: '1.15rem',
-              color: 'var(--white)',
-              marginBottom: '1.25rem',
-            }}
-          >
-            LAMAR Stukadoor en Onderhoud
+          <div style={{ marginBottom: '1.25rem' }}>
+            <img src="/images/logo.png" alt="LAMAR Stukadoor en Renovatie" style={{ height: 56, width: 'auto', display: 'block', filter: 'brightness(0) invert(1)' }} />
           </div>
           <div
             style={{
