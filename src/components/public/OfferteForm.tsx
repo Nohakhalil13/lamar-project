@@ -109,7 +109,7 @@ export default function OffertePage() {
       });
     } catch { /* ignore */ }
 
-    const waUrl = `https://wa.me/31684054528?text=${encodeURIComponent(lines.join('\n'))}`;
+    const waUrl = `https://wa.me/31630302033?text=${encodeURIComponent(lines.join('\n'))}`;
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
@@ -454,7 +454,7 @@ export default function OffertePage() {
               Heeft u vragen of wilt u direct iemand spreken?
             </p>
             <a
-              href="https://wa.me/31684054528"
+              href="https://wa.me/31630302033"
               target="_blank"
               rel="noopener noreferrer"
               style={{

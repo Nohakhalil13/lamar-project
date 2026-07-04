@@ -3,11 +3,11 @@ import { getSiteText } from '@/lib/siteText';
 import { t, type Lang } from '@/lib/i18n';
 
 const fallbacks: Record<string, string> = {
-  contact_phone: '06 84054528',
+  contact_phone: '06 30302033',
   contact_email: 'lamarstukadoor@gmail.com',
   contact_location: 'Geurdeland 17 g, 6673 DR Andelst',
   contact_hours: 'Ma – Za · 08:00 – 18:00',
-  whatsapp_number: '31684054528',
+  whatsapp_number: '31630302033',
   social_facebook: 'https://www.facebook.com/share/1B9dyMWyi8/',
   social_instagram: 'https://www.instagram.com/lamarstukadoor',
   social_tiktok: 'https://www.tiktok.com/@lamarstukadoor',

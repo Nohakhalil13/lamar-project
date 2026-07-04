@@ -6,7 +6,7 @@ import ReviewBadges from '@/components/public/ReviewBadges';
 export default async function HeroSection({ lang }: { lang: Lang }) {
   const tr = t[lang].hero;
   const tx = await getSiteText();
-  const wa = await getContent('whatsapp_number', '31684054528');
+  const wa = await getContent('whatsapp_number', '31630302033');
 
   return (
     <section

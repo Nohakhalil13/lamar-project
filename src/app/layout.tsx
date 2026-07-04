@@ -56,7 +56,7 @@ import TopTrustBar from '@/components/public/TopTrustBar'
 export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const wa = await getContent('whatsapp_number', '31684054528')
+  const wa = await getContent('whatsapp_number', '31630302033')
   // We can fetch theme, but we will enforce our new elegant palette by default
   const theme = await getTheme()
   const primaryColor = '#1A1C20';

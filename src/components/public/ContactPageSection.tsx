@@ -11,9 +11,9 @@ export default async function ContactPageSection({ lang }: { lang: Lang }) {
     'contact_name', 'contact_city', 'contact_location',
   ])
 
-  const phone   = c['contact_phone']    || '06 84054528'
+  const phone   = c['contact_phone']    || '06 30302033'
   const email   = c['contact_email']    || 'lamarstukadoor@gmail.com'
-  const wa      = c['whatsapp_number']  || '31684054528'
+  const wa      = c['whatsapp_number']  || '31630302033'
   const name    = c['contact_name']     || 'LAMAR Stukadoor en Onderhoud'
   const city    = c['contact_city']     || 'Heel Nederland'
   const address = c['contact_location'] || 'Geurdeland 17 g, 6673 DR Andelst'

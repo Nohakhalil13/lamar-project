@@ -3,8 +3,8 @@ import Link from 'next/link'
 
 export default async function MobileBottomNav() {
   const c = await getContentMany(['contact_phone', 'whatsapp_number'])
-  const phone = c['contact_phone'] || '06 84054528'
-  const wa = c['whatsapp_number'] || '31684054528'
+  const phone = c['contact_phone'] || '06 30302033'
+  const wa = c['whatsapp_number'] || '31630302033'
   
   const waUrl = `https://wa.me/${wa}`
   const phoneUrl = `tel:${phone.replace(/[^0-9+]/g, '')}`

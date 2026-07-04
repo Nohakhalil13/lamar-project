@@ -4,7 +4,7 @@ import OfferteForm from './OfferteForm'
 export default async function AdminOffertePage() {
   const c = await getContentMany(['whatsapp_number', 'offerte_intro'])
   const defaults = {
-    whatsapp_number: c['whatsapp_number'] || '31684054528',
+    whatsapp_number: c['whatsapp_number'] || '31630302033',
     offerte_intro: c['offerte_intro'] ?? '',
   }
   return (

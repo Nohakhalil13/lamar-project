@@ -16,9 +16,9 @@ export default async function ContactSection({ lang, quote }: { lang: Lang; quot
   const tr = t[lang].contactCards
   const tx = await getSiteText()
   const c = await getContentMany(['contact_phone', 'contact_email', 'whatsapp_number'])
-  const phone = c['contact_phone'] || '06 84054528'
+  const phone = c['contact_phone'] || '06 30302033'
   const email = c['contact_email'] || 'lamarstukadoor@gmail.com'
-  const wa = c['whatsapp_number'] || '31684054528'
+  const wa = c['whatsapp_number'] || '31630302033'
   const hrefs = [
     `https://wa.me/${wa}`,
     `tel:${phone.replace(/[^0-9+]/g, '')}`,
