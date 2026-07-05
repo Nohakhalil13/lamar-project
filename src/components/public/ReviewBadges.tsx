@@ -111,59 +111,61 @@ export default async function ReviewBadges() {
         .rb-card {
           background: #FFFFFF;
           border: 1px solid var(--border);
-          border-radius: 16px;
+          border-radius: 20px;
           box-shadow: 0 10px 30px rgba(20,24,29,0.05);
-          padding: 1.25rem 1.75rem;
+          padding: 2rem 2.25rem;
           text-decoration: none;
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 0.4rem;
-          min-width: 130px;
-          flex: 0 1 150px;
+          gap: 0.6rem;
+          min-width: 190px;
+          flex: 0 1 210px;
         }
+        .rb-logo svg { width: 50px; height: 50px; }
+        .rb-werkspot { width: 50px !important; height: 50px !important; font-size: 1.5rem !important; border-radius: 12px !important; }
         .rb-rating {
           font-family: var(--font-archivo);
           font-weight: 800;
-          font-size: 1.75rem;
+          font-size: 2.5rem;
           color: #1A1A1A;
           line-height: 1.1;
           margin-top: 0.5rem;
         }
         .rb-reviews {
-          font-size: 0.8rem;
+          font-size: 1.05rem;
           color: #4A4A4A;
           font-weight: 600;
           margin-top: 0.2rem;
           white-space: nowrap;
         }
-        .rb-stars { display: inline-flex; gap: 1px; }
-        .rb-star { color: #FBBC04; font-size: 0.95rem; }
+        .rb-stars { display: inline-flex; gap: 2px; }
+        .rb-star { color: #FBBC04; font-size: 1.3rem; }
 
-        /* Mobile: force a single row instead of stacking, shrink everything to fit */
+        /* Mobile: still one row (per earlier fix), but noticeably bigger than before */
         @media (max-width: 640px) {
           .rb-section { padding: 1.75rem 0.6rem !important; }
-          .rb-grid { flex-wrap: nowrap !important; gap: 0.4rem !important; }
+          .rb-grid { flex-wrap: nowrap !important; gap: 0.45rem !important; }
           .rb-card {
             flex: 1 1 0 !important;
             min-width: 0 !important;
-            padding: 0.75rem 0.3rem !important;
-            border-radius: 10px !important;
-            gap: 0.15rem !important;
+            padding: 1rem 0.4rem !important;
+            border-radius: 12px !important;
+            gap: 0.25rem !important;
           }
-          .rb-rating { font-size: 1.05rem !important; margin-top: 0.15rem !important; }
-          .rb-reviews { font-size: 0.56rem !important; margin-top: 0 !important; }
-          .rb-star { font-size: 0.5rem !important; }
-          .rb-logo svg { width: 20px !important; height: 20px !important; }
-          .rb-werkspot { width: 20px !important; height: 20px !important; font-size: 0.65rem !important; border-radius: 5px !important; }
+          .rb-rating { font-size: 1.45rem !important; margin-top: 0.2rem !important; }
+          .rb-reviews { font-size: 0.68rem !important; margin-top: 0 !important; }
+          .rb-star { font-size: 0.65rem !important; }
+          .rb-logo svg { width: 30px !important; height: 30px !important; }
+          .rb-werkspot { width: 30px !important; height: 30px !important; font-size: 0.85rem !important; border-radius: 7px !important; }
         }
 
         @media (max-width: 380px) {
-          .rb-card { padding: 0.6rem 0.2rem !important; }
-          .rb-rating { font-size: 0.9rem !important; }
-          .rb-reviews { font-size: 0.5rem !important; }
-          .rb-logo svg { width: 17px !important; height: 17px !important; }
-          .rb-werkspot { width: 17px !important; height: 17px !important; font-size: 0.55rem !important; }
+          .rb-card { padding: 0.8rem 0.3rem !important; }
+          .rb-rating { font-size: 1.2rem !important; }
+          .rb-reviews { font-size: 0.6rem !important; }
+          .rb-logo svg { width: 25px !important; height: 25px !important; }
+          .rb-werkspot { width: 25px !important; height: 25px !important; font-size: 0.7rem !important; }
         }
       `}</style>
       <div className="rb-grid">
