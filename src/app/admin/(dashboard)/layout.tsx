@@ -30,6 +30,7 @@ export default async function AdminLayout({
       links: [
         { href: '/admin/teksten', label: 'Texts' },
         { href: '/admin/reviews-bar', label: 'Rating Badges' },
+        { href: '/admin/images', label: 'Afbeeldingen' },
         { href: '/admin/about', label: 'About' },
         { href: '/admin/werkwijze', label: 'Process' },
         { href: '/admin/offerte', label: 'Quote' },
