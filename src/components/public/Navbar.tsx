@@ -90,7 +90,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
             }}
           >
             <Image
-              src="/images/logo-removebg-preview.png"
+              src="/images/logo-main.png"
               alt="LAMAR Stukadoor en Renovatie"
               width={200}
               height={64}

@@ -163,7 +163,7 @@ export default async function Footer({ lang }: { lang: Lang }) {
           <div style={{ marginBottom: "1.25rem" }}>
             <Link href="/" className="flex items-center text-decoration-none">
               <Image
-                src="/images/logo-removebg-preview.png"
+                src="/images/logo-main.png"
                 alt="LAMAR Stukadoor en Renovatie"
                 width={200}
                 height={64}
