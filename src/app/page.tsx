@@ -41,6 +41,7 @@ export default async function Home() {
           heading="Stukadoorswerk" 
           subheading="Strakke wanden en plafonds, perfect afgewerkt."
           services={stucwerkServices} 
+          startIndex={0}
         />
 
         {/* Service Section 2 */}
@@ -48,6 +49,7 @@ export default async function Home() {
           heading="Schilderwerk" 
           subheading="Kwalitatief schilderwerk voor binnen en buiten."
           services={schilderwerkServices} 
+          startIndex={3}
         />
 
         {/* Portfolio Section */}

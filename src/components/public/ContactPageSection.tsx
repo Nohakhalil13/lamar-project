@@ -25,7 +25,7 @@ export default async function ContactPageSection({ lang }: { lang: Lang }) {
     phoneLbl: 'Telefoonnummer', phonePh: '+31 6 ...',
     emailLbl: 'E-mailadres',    emailPh: 'uw@email.nl',
     serviceLbl: 'Gewenste dienst', servicePh: 'bijv. Stucwerk, Schilderwerk...',
-    messageLbl: 'Bericht',     messagePh: 'Beschrijf uw project of vraag...',
+    messageLbl: 'Bericht',    messagePh: 'Beschrijf uw project of vraag...',
     send: 'VERSTUUR BERICHT',  sending: 'Versturen...',
     successTitle: 'Bericht ontvangen!',
     successMsg: 'We nemen zo snel mogelijk contact met u op. Bedankt voor uw bericht.',
@@ -37,7 +37,7 @@ export default async function ContactPageSection({ lang }: { lang: Lang }) {
       <section style={{
         background: 'linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%)',
         padding: '4rem 1.5rem',
-        borderBottom: '3px solid var(--teal2)',
+        borderBottom: '3px solid var(--emerald)',
       }}>
         <div className="rv" style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{
@@ -55,10 +55,10 @@ export default async function ContactPageSection({ lang }: { lang: Lang }) {
             }}>
               <span style={{
                 width: 50, height: 50, borderRadius: '50%',
-                background: 'var(--teal2)', display: 'flex',
+                background: 'var(--emerald)', display: 'flex',
                 alignItems: 'center', justifyContent: 'center', flexShrink: 0,
               }}>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.13 11.94 19.79 19.79 0 0 1 1.06 3.31 2 2 0 0 1 3.04 1.11h3a2 2 0 0 1 2 1.72c.127.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 21 16.92z"/>
                 </svg>
               </span>
@@ -101,10 +101,10 @@ export default async function ContactPageSection({ lang }: { lang: Lang }) {
             }}>
               <span style={{
                 width: 50, height: 50, borderRadius: '50%',
-                background: 'var(--teal2)', display: 'flex',
+                background: 'var(--emerald)', display: 'flex',
                 alignItems: 'center', justifyContent: 'center', flexShrink: 0,
               }}>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="2" y="4" width="20" height="16" rx="2"/>
                   <path d="m2 7 10 6 10-6"/>
                 </svg>
@@ -124,10 +124,10 @@ export default async function ContactPageSection({ lang }: { lang: Lang }) {
             }}>
               <span style={{
                 width: 50, height: 50, borderRadius: '50%',
-                background: 'rgba(255,217,53,0.15)', border: '1px solid rgba(255,217,53,0.3)',
+                background: 'rgba(46,90,68,0.15)', border: '1px solid rgba(46,90,68,0.3)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
               }}>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal2)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10"/>
                   <path d="M12 6v6l4 2"/>
                 </svg>
@@ -172,11 +172,11 @@ export default async function ContactPageSection({ lang }: { lang: Lang }) {
             {/* Section label */}
             <div style={{
               display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-              background: 'rgba(255,217,53,0.12)', border: '1px solid rgba(255,217,53,0.3)',
+              background: 'rgba(46,90,68,0.12)', border: '1px solid rgba(46,90,68,0.3)',
               borderRadius: 50, padding: '0.35rem 1rem', marginBottom: '1.5rem',
             }}>
-              <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--teal2)', display: 'block' }} />
-              <span style={{ fontFamily: 'var(--font-outfit)', fontWeight: 600, fontSize: '0.78rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--teal2)' }}>
+              <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--emerald)', display: 'block' }} />
+              <span style={{ fontFamily: 'var(--font-outfit)', fontWeight: 600, fontSize: '0.78rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--emerald)' }}>
                 Stuur een bericht
               </span>
             </div>
@@ -191,7 +191,7 @@ export default async function ContactPageSection({ lang }: { lang: Lang }) {
                 lineHeight: 1.2,
               }}
             >
-              Hoe kunnen wij <span style={{ color: 'var(--teal2)' }}>u helpen?</span>
+              Hoe kunnen wij <span style={{ color: 'var(--emerald)' }}>u helpen?</span>
             </h2>
             <p
               style={{
@@ -224,8 +224,8 @@ export default async function ContactPageSection({ lang }: { lang: Lang }) {
               <div style={{
                 display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.75rem',
               }}>
-                <div style={{ width: 36, height: 36, background: 'var(--teal2)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <div style={{ width: 36, height: 36, background: 'var(--emerald)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
                   </svg>
                 </div>
@@ -236,12 +236,12 @@ export default async function ContactPageSection({ lang }: { lang: Lang }) {
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                 {[
-                  { icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal2)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>, label: 'Naam', value: name },
-                  { icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal2)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>, label: 'Werkgebied', value: city },
-                  { icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal2)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>, label: 'Adres', value: address },
+                  { icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>, label: 'Naam', value: name },
+                  { icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>, label: 'Werkgebied', value: city },
+                  { icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>, label: 'Adres', value: address },
                 ].map(({ icon, label, value }) => (
                   <div key={label} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.875rem' }}>
-                    <div style={{ marginTop: 2, flexShrink: 0, width: 28, height: 28, borderRadius: '50%', background: 'rgba(255,217,53,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <div style={{ marginTop: 2, flexShrink: 0, width: 28, height: 28, borderRadius: '50%', background: 'rgba(46,90,68,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                       {icon}
                     </div>
                     <div>
@@ -294,7 +294,7 @@ export default async function ContactPageSection({ lang }: { lang: Lang }) {
               }}
             >
               <div style={{ fontFamily: 'var(--font-archivo)', fontWeight: 700, fontSize: '0.85rem', color: 'var(--white)', marginBottom: '1.25rem', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal2)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
                 </svg>
                 Beschikbaarheid
@@ -302,7 +302,7 @@ export default async function ContactPageSection({ lang }: { lang: Lang }) {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
                 {[
                   { day: 'Maandag – Vrijdag', hours: '07:00 – 18:00', open: true },
-                  { day: 'Zaterdag',          hours: '09:00 – 14:00', open: true },
+                  { day: 'Zaterdag',         hours: '09:00 – 14:00', open: true },
                   { day: 'Zondag',            hours: 'Gesloten',      open: false },
                 ].map(({ day, hours, open }) => (
                   <div key={day} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.5rem 0', borderBottom: '1px solid var(--border)' }}>
@@ -310,7 +310,7 @@ export default async function ContactPageSection({ lang }: { lang: Lang }) {
                     <span style={{
                       fontFamily: 'var(--font-outfit)', fontSize: '0.88rem', fontWeight: 600,
                       color: open ? 'var(--white)' : 'var(--white3)',
-                      background: open ? 'rgba(255,217,53,0.1)' : 'transparent',
+                      background: open ? 'rgba(46,90,68,0.1)' : 'transparent',
                       padding: open ? '0.2rem 0.6rem' : '0',
                       borderRadius: 4,
                     }}>{hours}</span>
@@ -320,11 +320,11 @@ export default async function ContactPageSection({ lang }: { lang: Lang }) {
 
               <div style={{
                 marginTop: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.5rem',
-                padding: '0.75rem', background: 'rgba(255,217,53,0.08)', borderRadius: 8,
-                border: '1px solid rgba(255,217,53,0.2)',
+                padding: '0.75rem', background: 'rgba(46,90,68,0.08)', borderRadius: 8,
+                border: '1px solid rgba(46,90,68,0.2)',
               }}>
                 <span style={{ fontSize: '0.75rem' }}>⚡</span>
-                <span style={{ fontFamily: 'var(--font-outfit)', fontSize: '0.8rem', color: 'var(--teal2)', fontWeight: 600 }}>
+                <span style={{ fontFamily: 'var(--font-outfit)', fontSize: '0.8rem', color: 'var(--emerald)', fontWeight: 600 }}>
                   Reactietijd: binnen 1 werkdag
                 </span>
               </div>
@@ -361,8 +361,8 @@ export default async function ContactPageSection({ lang }: { lang: Lang }) {
       <style>{`
         .contact-hero-card:hover {
           transform: translateY(-3px);
-          border-color: rgba(255,217,53,0.3) !important;
-          background: rgba(255,217,53,0.06) !important;
+          border-color: rgba(46, 90, 68, 0.4) !important;
+          background: rgba(46, 90, 68, 0.08) !important;
         }
         .contact-wa-card:hover {
           transform: translateY(-3px);

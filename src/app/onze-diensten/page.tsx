@@ -47,11 +47,11 @@ export default function OnzeDienstenPage() {
           <div className="rv" style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
             <div style={{
               display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-              background: 'rgba(255,217,53,0.12)', border: '1px solid rgba(255,217,53,0.3)',
+              background: 'rgba(46,90,68,0.12)', border: '1px solid rgba(46,90,68,0.3)',
               borderRadius: 50, padding: '0.35rem 1.1rem', marginBottom: '1.5rem',
             }}>
-              <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--teal2)', display: 'block' }} />
-              <span style={{ fontFamily: 'var(--font-outfit)', fontWeight: 600, fontSize: '0.78rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--teal2)' }}>
+              <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--emerald)', display: 'block' }} />
+              <span style={{ fontFamily: 'var(--font-outfit)', fontWeight: 600, fontSize: '0.78rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--emerald)' }}>
                 Vakmanschap op maat
               </span>
             </div>
@@ -60,9 +60,9 @@ export default function OnzeDienstenPage() {
             </h2>
             <p style={{ fontSize: '1.05rem', lineHeight: 1.8, color: 'var(--white2)', marginBottom: '1.5rem', fontFamily: 'var(--font-outfit)' }}>
               Bij ons kunt u terecht voor onderstaande diensten. Vraag gerust een{' '}
-              <Link href="/offerte-aanvragen" style={{ color: 'var(--teal2)', textDecoration: 'none', fontWeight: 600 }}>vrijblijvende offerte</Link>{' '}
+              <Link href="/offerte-aanvragen" style={{ color: 'var(--emerald)', textDecoration: 'none', fontWeight: 600 }}>vrijblijvende offerte</Link>{' '}
               aan en bekijk bij interesse ook onze{' '}
-              <Link href="/projects" style={{ color: 'var(--teal2)', textDecoration: 'none', fontWeight: 600 }}>portfolio</Link>{' '}
+              <Link href="/projects" style={{ color: 'var(--emerald)', textDecoration: 'none', fontWeight: 600 }}>portfolio</Link>{' '}
               met foto's van eerder uitgevoerde werkzaamheden.
             </p>
 
@@ -75,7 +75,7 @@ export default function OnzeDienstenPage() {
                 { num: '100%', label: 'Garantie' },
               ].map(({ num, label }) => (
                 <div key={label} style={{ textAlign: 'center' }}>
-                  <div style={{ fontFamily: 'var(--font-archivo)', fontWeight: 800, fontSize: 'clamp(1.4rem,2.5vw,1.8rem)', color: 'var(--teal2)' }}>{num}</div>
+                  <div style={{ fontFamily: 'var(--font-archivo)', fontWeight: 800, fontSize: 'clamp(1.4rem,2.5vw,1.8rem)', color: 'var(--emerald)' }}>{num}</div>
                   <div style={{ fontFamily: 'var(--font-outfit)', fontSize: '0.82rem', color: 'var(--white2)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>{label}</div>
                 </div>
               ))}
@@ -128,10 +128,10 @@ export default function OnzeDienstenPage() {
                   {/* Price badge */}
                   <div style={{
                     position: 'absolute', bottom: '1.25rem', left: '1.25rem',
-                    background: 'var(--teal2)', color: '#1A1A1A',
+                    background: 'var(--emerald)', color: '#FFFFFF',
                     fontFamily: 'var(--font-archivo)', fontWeight: 800,
                     fontSize: '0.9rem', padding: '0.4rem 1rem', borderRadius: 6,
-                    boxShadow: '0 4px 15px rgba(255,217,53,0.4)',
+                    boxShadow: '0 4px 15px rgba(46,90,68,0.4)',
                   }}>
                     {service.price}
                   </div>
@@ -143,9 +143,9 @@ export default function OnzeDienstenPage() {
                   <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.25rem' }}>
                     <div style={{
                       width: 54, height: 54, borderRadius: 14,
-                      background: 'rgba(255,217,53,0.12)', border: '1px solid rgba(255,217,53,0.3)',
+                      background: 'rgba(46,90,68,0.12)', border: '1px solid rgba(46,90,68,0.3)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      color: 'var(--teal2)', flexShrink: 0,
+                      color: 'var(--emerald)', flexShrink: 0,
                     }}>
                       {icon || <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>}
                     </div>
@@ -184,7 +184,7 @@ export default function OnzeDienstenPage() {
                           padding: '0.75rem', background: isEven ? 'var(--bg2)' : 'var(--bg)',
                           borderRadius: 10, border: '1px solid var(--border)',
                         }}>
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--teal2)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ marginTop: 2, flexShrink: 0 }}>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ marginTop: 2, flexShrink: 0 }}>
                             <polyline points="20 6 9 17 4 12"/>
                           </svg>
                           <div>
@@ -198,10 +198,10 @@ export default function OnzeDienstenPage() {
                   <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                     <Link
                       href="/offerte-aanvragen"
-                      className="btn-teal"
+                      className="btn-emerald"
                       style={{
-                        background: 'var(--teal2)',
-                        color: '#1A1A1A',
+                        background: 'var(--emerald)',
+                        color: '#FFFFFF',
                         padding: '0.85rem 1.75rem',
                         borderRadius: 6,
                         textDecoration: 'none',
@@ -210,16 +210,18 @@ export default function OnzeDienstenPage() {
                         fontFamily: 'var(--font-outfit)',
                         letterSpacing: '0.04em',
                         textTransform: 'uppercase',
+                        transition: 'all 0.3s ease',
                       }}
                     >
                       Offerte aanvragen →
                     </Link>
                     <Link
                       href={`/diensten/${service.slug}`}
-                      className="btn-outline"
+                      className="btn-outline-emerald"
                       style={{
-                        border: '1px solid var(--border2)',
+                        border: '1px solid var(--emerald)',
                         color: 'var(--white2)',
+                        background: 'transparent',
                         padding: '0.85rem 1.75rem',
                         borderRadius: 6,
                         textDecoration: 'none',
@@ -228,6 +230,7 @@ export default function OnzeDienstenPage() {
                         fontFamily: 'var(--font-outfit)',
                         letterSpacing: '0.04em',
                         textTransform: 'uppercase',
+                        transition: 'all 0.3s ease',
                       }}
                     >
                       Meer informatie
@@ -250,7 +253,7 @@ export default function OnzeDienstenPage() {
           {/* Decorative background accent */}
           <div style={{
             position: 'absolute', inset: 0,
-            background: 'radial-gradient(ellipse at center, rgba(255,217,53,0.08) 0%, transparent 70%)',
+            background: 'radial-gradient(ellipse at center, rgba(46,90,68,0.12) 0%, transparent 70%)',
             pointerEvents: 'none',
           }} />
           <div className="rv" style={{ maxWidth: 700, margin: '0 auto', position: 'relative', zIndex: 1 }}>
@@ -277,10 +280,10 @@ export default function OnzeDienstenPage() {
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link
                 href="/contact"
-                className="btn-teal"
+                className="btn-emerald"
                 style={{
-                  background: 'var(--teal2)',
-                  color: '#1A1A1A',
+                  background: 'var(--emerald)',
+                  color: '#FFFFFF',
                   padding: '1rem 2.5rem',
                   borderRadius: 6,
                   textDecoration: 'none',
@@ -289,15 +292,18 @@ export default function OnzeDienstenPage() {
                   fontFamily: 'var(--font-outfit)',
                   letterSpacing: '0.04em',
                   textTransform: 'uppercase',
+                  transition: 'all 0.3s ease',
                 }}
               >
                 Neem contact op
               </Link>
               <Link
                 href="/offerte-aanvragen"
+                className="btn-outline-emerald"
                 style={{
-                  border: '1px solid rgba(255,255,255,0.2)',
+                  border: '1px solid var(--emerald)',
                   color: '#fff',
+                  background: 'transparent',
                   padding: '1rem 2.5rem',
                   borderRadius: 6,
                   textDecoration: 'none',
@@ -306,6 +312,7 @@ export default function OnzeDienstenPage() {
                   fontFamily: 'var(--font-outfit)',
                   letterSpacing: '0.04em',
                   textTransform: 'uppercase',
+                  transition: 'all 0.3s ease',
                 }}
               >
                 Offerte aanvragen
@@ -316,6 +323,20 @@ export default function OnzeDienstenPage() {
 
         <style>{`
           .dienst-img:hover { transform: scale(1.04); }
+          .btn-emerald {
+            background-color: var(--emerald) !important;
+          }
+          .btn-emerald:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+            background-color: var(--emerald) !important;
+          }
+          .btn-outline-emerald:hover {
+            background: var(--emerald) !important;
+            color: #FFFFFF !important;
+            border-color: var(--emerald) !important;
+            transform: translateY(-2px);
+          }
           @media (max-width: 700px) {
             #onze-diensten-grid > div { order: 0 !important; }
           }

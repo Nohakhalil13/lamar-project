@@ -27,7 +27,7 @@ function parse(raw: string | undefined, fallback: Testimonial): Testimonial {
 
 function GoogleG() {
   return (
-    <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true" style={{ flexShrink: 0, opacity: 0.8 }}>
+    <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true" style={{ flexShrink: 0, opacity: 0.85 }}>
       <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
       <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
       <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
@@ -45,7 +45,8 @@ export default async function TestimonialsSection({ headingA, headingAccent, hea
     parse(content['testimonial_4'], fallbacks[3]),
   ]
 
-  const AVATAR_COLORS = ['#1e4620', '#7b4012', '#00529b', '#4a6963'];
+  /* مصفوفة ألوان متناسقة مع الهوية الجديدة (تردد بين Emerald و Plum وباقي الدرجات) */
+  const AVATAR_COLORS = ['var(--emerald)', 'var(--plum)', '#2E5A44', '#4A2A4F'];
 
   return (
     <section id="testimonials" style={{ padding: '6rem 1.5rem', background: '#fff' }}>
@@ -54,7 +55,7 @@ export default async function TestimonialsSection({ headingA, headingAccent, hea
         {/* Top Header */}
         <h3 style={{ 
           fontFamily: 'var(--font-archivo)', fontWeight: 800, fontSize: '1.5rem', 
-          color: '#111', marginBottom: '1.5rem', borderBottom: '3px solid var(--teal2)', 
+          color: '#111', marginBottom: '1.5rem', borderBottom: '3px solid var(--emerald)', 
           paddingBottom: '0.5rem' 
         }}>
           Review
@@ -65,11 +66,9 @@ export default async function TestimonialsSection({ headingA, headingAccent, hea
           fontFamily: 'var(--font-archivo)', fontWeight: 400, fontSize: 'clamp(1.5rem,2.5vw,2.2rem)', 
           color: '#333', marginBottom: '3rem', textAlign: 'center'
         }}>
-          BEST BEOORDEELDE <span style={{ textDecoration: 'underline', textDecorationThickness: '2px', textUnderlineOffset: '6px' }}>STUKADOORS & SCHILDERS</span> VAN NEDERLAND!
+          BEST BEOORDEELDE <span style={{ textDecoration: 'underline', textDecorationThickness: '2px', textUnderlineOffset: '6px', textDecorationColor: 'var(--emerald)' }}>STUKADOORS & SCHILDERS</span> VAN NEDERLAND!
         </h2>
 
-        {/* Trust Badges Row now shown once, in HeroSection (managed via /admin/reviews-bar) */}
-        
         {/* Reviews Cards */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem', width: '100%' }}>
           {testimonials.map((tm, i) => (
@@ -95,7 +94,8 @@ export default async function TestimonialsSection({ headingA, headingAccent, hea
                 <GoogleG />
               </div>
 
-              <div style={{ color: 'var(--teal2)', fontSize: '1.1rem', letterSpacing: '2px' }}>
+              {/* النجوم باللون الأساسي Emerald */}
+              <div style={{ color: 'var(--emerald)', fontSize: '1.1rem', letterSpacing: '2px' }}>
                 ★★★★★
               </div>
 
@@ -107,7 +107,7 @@ export default async function TestimonialsSection({ headingA, headingAccent, hea
                 {tm.quote}
               </p>
 
-              <span style={{ fontSize: '0.8rem', color: '#888', marginTop: 'auto', cursor: 'pointer' }}>Lees verder</span>
+              <span style={{ fontSize: '0.8rem', color: 'var(--emerald)', fontWeight: 600, marginTop: 'auto', cursor: 'pointer' }}>Lees verder</span>
             </div>
           ))}
         </div>

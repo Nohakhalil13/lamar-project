@@ -1,30 +1,31 @@
-import { getContentMany } from '@/lib/content';
-import { getSiteText } from '@/lib/siteText';
-import { t, type Lang } from '@/lib/i18n';
+import { getContentMany } from "@/lib/content";
+import { getSiteText } from "@/lib/siteText";
+import { t, type Lang } from "@/lib/i18n";
 
 const fallbacks: Record<string, string> = {
-  contact_phone: '06 30302033',
-  contact_email: 'lamarstukadoor@gmail.com',
-  contact_location: 'Geurdeland 17 g, 6673 DR Andelst',
-  contact_hours: 'Ma – Za · 08:00 – 18:00',
-  whatsapp_number: '31630302033',
-  social_facebook: 'https://www.facebook.com/share/1B9dyMWyi8/',
-  social_instagram: 'https://www.instagram.com/lamarstukadoor',
-  social_tiktok: 'https://www.tiktok.com/@lamarstukadoor',
-  social_youtube: 'https://www.youtube.com/@lamarstukadoorenonderhod6868',
+  contact_phone: "06 30302033",
+  contact_email: "lamarstukadoor@gmail.com",
+  contact_location: "Geurdeland 17 g, 6673 DR Andelst",
+  contact_hours: "Ma – Za · 08:00 – 18:00",
+  whatsapp_number: "31630302033",
+  social_facebook: "https://www.facebook.com/share/1B9dyMWyi8/",
+  social_instagram: "https://www.instagram.com/lamarstukadoor",
+  social_tiktok: "https://www.tiktok.com/@lamarstukadoor",
+  social_youtube: "https://www.youtube.com/@lamarstukadoorenonderhod6868",
 };
 
 const circle: React.CSSProperties = {
   width: 40,
   height: 40,
-  borderRadius: '50%',
-  background: 'var(--white)',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  color: '#FFFFFF',
-  textDecoration: 'none',
+  borderRadius: "50%",
+  background: "var(--bg2, #F4F4F4)",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  color: "var(--text, #1A1A1A)",
+  textDecoration: "none",
   flexShrink: 0,
+  transition: "all 0.2s ease",
 };
 
 export default async function Footer({ lang }: { lang: Lang }) {
@@ -34,11 +35,14 @@ export default async function Footer({ lang }: { lang: Lang }) {
   const get = (k: string) => c[k] || fallbacks[k];
   const year = new Date().getFullYear();
 
+  const phoneValue = get("contact_phone");
+  const emailValue = get("contact_email");
+
   // Social links with their icons - render if URL is present
   const socialLinks = [
     {
-      key: 'whatsapp_number',
-      label: 'WhatsApp',
+      key: "whatsapp_number",
+      label: "WhatsApp",
       isWhatsApp: true,
       svg: (
         <svg
@@ -56,8 +60,8 @@ export default async function Footer({ lang }: { lang: Lang }) {
       ),
     },
     {
-      key: 'social_facebook',
-      label: 'Facebook',
+      key: "social_facebook",
+      label: "Facebook",
       isWhatsApp: false,
       svg: (
         <svg
@@ -75,8 +79,8 @@ export default async function Footer({ lang }: { lang: Lang }) {
       ),
     },
     {
-      key: 'social_instagram',
-      label: 'Instagram',
+      key: "social_instagram",
+      label: "Instagram",
       isWhatsApp: false,
       svg: (
         <svg
@@ -96,8 +100,8 @@ export default async function Footer({ lang }: { lang: Lang }) {
       ),
     },
     {
-      key: 'social_tiktok',
-      label: 'TikTok',
+      key: "social_tiktok",
+      label: "TikTok",
       isWhatsApp: false,
       svg: (
         <svg
@@ -112,8 +116,8 @@ export default async function Footer({ lang }: { lang: Lang }) {
       ),
     },
     {
-      key: 'social_youtube',
-      label: 'YouTube',
+      key: "social_youtube",
+      label: "YouTube",
       isWhatsApp: false,
       svg: (
         <svg
@@ -136,59 +140,115 @@ export default async function Footer({ lang }: { lang: Lang }) {
   return (
     <footer
       style={{
-        background: 'var(--bg2)',
-        borderTop: '1px solid var(--border)',
-        padding: '4rem 3.5rem 2rem',
+        background: "var(--bg, #FFFFFF)",
+        borderTop: "1px solid var(--border, rgba(0, 0, 0, 0.08))",
+        padding: "4rem 2rem 2rem",
+        color: "var(--text, #333333)",
       }}
     >
       <div
         className="site-footer-grid"
         style={{
-          display: 'grid',
-          gridTemplateColumns: '1.4fr 1fr',
-          gap: '3rem',
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+          gap: "3rem",
           maxWidth: 1100,
-          margin: '0 auto',
+          margin: "0 auto",
         }}
       >
         {/* Brand + contact */}
         <div>
-          <div style={{ marginBottom: '1.25rem' }}>
-            <img src="/images/logo.png" alt="LAMAR Stukadoor en Renovatie" style={{ height: 56, width: 'auto', display: 'block', filter: 'brightness(0) invert(1)' }} />
+          <div style={{ marginBottom: "1.25rem" }}>
+            <img
+              src="/images/logo-removebg-preview.png"
+              alt="LAMAR Stukadoor en Renovatie"
+              className="h-10 sm:h-12 md:h-16 w-auto object-contain transition-all duration-200"
+              style={{ display: "block", maxWidth: "100%" }}
+            />
           </div>
           <div
             style={{
-              fontSize: '0.9rem',
-              color: 'var(--white2)',
-              lineHeight: 2,
-              fontWeight: 300,
+              fontSize: "0.9rem",
+              color: "var(--text-muted, #555555)",
+              lineHeight: 1.8,
+              fontWeight: 400,
             }}
           >
-            <div>{get('contact_location')}</div>
-            <div style={{ marginTop: '0.75rem' }}>
-              T: {get('contact_phone')}
+            <div>{get("contact_location")}</div>
+            <div style={{ marginTop: "0.75rem" }}>
+              T:{" "}
+              <a
+                href={`tel:${phoneValue.replace(/\s+/g, "")}`}
+                style={{
+                  color: "var(--text, #1A1A1A)",
+                  textDecoration: "none",
+                  fontWeight: 600,
+                  transition: "color 0.2s",
+                }}
+              >
+                {phoneValue}
+              </a>
             </div>
-            <div>E: {get('contact_email')}</div>
-            
+            <div>
+              E:{" "}
+              <a
+                href={`mailto:${emailValue}`}
+                style={{
+                  color: "var(--primary, #007a63)",
+                  textDecoration: "none",
+                  fontWeight: 500,
+                  transition: "opacity 0.2s",
+                }}
+              >
+                {emailValue}
+              </a>
+            </div>
+
             {/* Day-by-day Business Hours */}
-            <div style={{ marginTop: '1.25rem' }}>
-              <div style={{ fontFamily: 'var(--font-archivo)', fontWeight: 700, color: 'var(--white)', marginBottom: '0.5rem' }}>Openingstijden:</div>
-              <div style={{ display: 'grid', gridTemplateColumns: '80px 1fr', gap: '0.25rem', fontSize: '0.85rem' }}>
-                <div>Maandag:</div><div>08:00 - 18:00</div>
-                <div>Dinsdag:</div><div>08:00 - 18:00</div>
-                <div>Woensdag:</div><div>08:00 - 18:00</div>
-                <div>Donderdag:</div><div>08:00 - 18:00</div>
-                <div>Vrijdag:</div><div>08:00 - 18:00</div>
-                <div>Zaterdag:</div><div>08:00 - 18:00</div>
-                <div>Zondag:</div><div style={{ color: 'var(--white3)' }}>Gesloten</div>
+            <div style={{ marginTop: "1.25rem" }}>
+              <div
+                style={{
+                  fontFamily: "var(--font-archivo)",
+                  fontWeight: 700,
+                  color: "var(--text, #1A1A1A)",
+                  marginBottom: "0.5rem",
+                }}
+              >
+                Openingstijden:
+              </div>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "80px 1fr",
+                  gap: "0.25rem",
+                  fontSize: "0.85rem",
+                  color: "var(--text-muted, #666666)",
+                }}
+              >
+                <div>Maandag:</div>
+                <div>08:00 - 18:00</div>
+                <div>Dinsdag:</div>
+                <div>08:00 - 18:00</div>
+                <div>Woensdag:</div>
+                <div>08:00 - 18:00</div>
+                <div>Donderdag:</div>
+                <div>08:00 - 18:00</div>
+                <div>Vrijdag:</div>
+                <div>08:00 - 18:00</div>
+                <div>Zaterdag:</div>
+                <div>08:00 - 18:00</div>
+                <div>Zondag:</div>
+                <div style={{ color: "var(--text-dim, #999999)" }}>
+                  Gesloten
+                </div>
               </div>
             </div>
           </div>
+
           <div
-            style={{ display: 'flex', gap: '0.75rem', marginTop: '1.75rem' }}
+            style={{ display: "flex", gap: "0.75rem", marginTop: "1.75rem" }}
           >
             {socialLinks.map((social) => {
-              // undefined = never configured (use fallback); '' = cleared in admin (hide); else use saved value
               const saved = c[social.key];
               const value = saved === undefined ? fallbacks[social.key] : saved;
               if (!value) return null;
@@ -201,6 +261,7 @@ export default async function Footer({ lang }: { lang: Lang }) {
                   rel="noopener noreferrer"
                   aria-label={social.label}
                   style={circle}
+                  className="hover:bg-[#007a63] hover:text-white transition-colors duration-200"
                 >
                   {social.svg}
                 </a>
@@ -213,36 +274,35 @@ export default async function Footer({ lang }: { lang: Lang }) {
         <div>
           <div
             style={{
-              fontFamily: 'var(--font-archivo)',
+              fontFamily: "var(--font-archivo)",
               fontWeight: 800,
-              fontSize: '1.15rem',
-              color: 'var(--white)',
-              marginBottom: '1.25rem',
+              fontSize: "1.15rem",
+              color: "var(--text, #1A1A1A)",
+              marginBottom: "1.25rem",
             }}
           >
             {tr.pagesLabel}
           </div>
           <ul
             style={{
-              listStyle: 'none',
+              listStyle: "none",
               margin: 0,
               padding: 0,
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '0.75rem',
+              display: "flex",
+              flexDirection: "column",
+              gap: "0.75rem",
             }}
           >
             {tr.links.map(({ label, href }) => (
               <li key={href}>
                 <a
                   href={href}
-                  className="footer-link"
+                  className="footer-link hover:text-(--primary)! transition-colors duration-200"
                   style={{
-                    fontSize: '0.9rem',
-                    color: 'var(--white2)',
-                    textDecoration: 'none',
-                    fontWeight: 300,
-                    transition: 'color 0.2s',
+                    fontSize: "0.9rem",
+                    color: "var(--text-muted, #555555)",
+                    textDecoration: "none",
+                    fontWeight: 400,
                   }}
                 >
                   {label}
@@ -256,14 +316,14 @@ export default async function Footer({ lang }: { lang: Lang }) {
       <div
         style={{
           maxWidth: 1100,
-          margin: '3rem auto 0',
-          paddingTop: '1.5rem',
-          borderTop: '1px solid var(--border)',
-          fontSize: '0.78rem',
-          color: 'var(--white3)',
+          margin: "3rem auto 0",
+          paddingTop: "1.5rem",
+          borderTop: "1px solid var(--border, rgba(0, 0, 0, 0.08))",
+          fontSize: "0.78rem",
+          color: "var(--text-dim, #888888)",
         }}
       >
-        © {year} {tx('footer_copy')}
+        © {year} {tx("footer_copy")}
       </div>
     </footer>
   );

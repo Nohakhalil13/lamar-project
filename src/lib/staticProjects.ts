@@ -18,7 +18,7 @@ export const staticProjects: StaticProject[] = [
     slug: 'stucwerk-project-1',
     title: 'Stucwerk woonkamer',
     description: 'Volledig nieuw stucwerk in een moderne woonkamer. Sausklaar afgewerkt en klaar voor verf.',
-    coverImage: `${BASE}/490837676_18002488040775186_5734868356333061683_nfull.webp`,
+    coverImage: `${BASE}/image7.jpeg`,
     images: [
       `${BASE}/490837676_18002488040775186_5734868356333061683_nfull.webp`,
       `${BASE}/485683818_17999323868775186_4643868875547615422_nfull.webp`,
@@ -30,7 +30,7 @@ export const staticProjects: StaticProject[] = [
     slug: 'stucwerk-project-2',
     title: 'Stucwerk renovatie',
     description: 'Complete stucwerkrenovatie in een bestaande woning. Muren recht en sausklaar opgeleverd.',
-    coverImage: `${BASE}/438829756_798925164965209_7740383433861504538_nfull.jpg`,
+    coverImage: `${BASE}/image8.jpeg`,
     images: [
       `${BASE}/438829756_798925164965209_7740383433861504538_nfull.jpg`,
       `${BASE}/430061772_333445143012904_9061525014604183814_nfull.jpg`,
@@ -42,7 +42,7 @@ export const staticProjects: StaticProject[] = [
     slug: 'schilderwerk-project-1',
     title: 'Schilderwerk appartement',
     description: 'Volledig schilderwerk van een appartement. Muren en plafonds in witte matte afwerking.',
-    coverImage: `${BASE}/409089609_870919337831295_3429288127286573085_nfull.jpg`,
+    coverImage: `${BASE}/image9.jpeg`,
     images: [
       `${BASE}/409089609_870919337831295_3429288127286573085_nfull.jpg`,
       `${BASE}/409481422_1251288162206261_4668112953640508655_nfull.jpg`,
@@ -54,7 +54,7 @@ export const staticProjects: StaticProject[] = [
     slug: 'latex-spuiten-project-1',
     title: 'Latex spuiten nieuwbouw',
     description: 'Latex gespoten muren en plafonds in een nieuwbouwwoning. Strak en streeploos resultaat.',
-    coverImage: `${BASE}/452281388_1021125332921548_14055840211373933_nfull.webp`,
+    coverImage: `${BASE}/image10.jpeg`,
     images: [
       `${BASE}/452281388_1021125332921548_14055840211373933_nfull.webp`,
       `${BASE}/455255305_1205151147499041_2329569024352065179_nfull.webp`,
@@ -66,7 +66,7 @@ export const staticProjects: StaticProject[] = [
     slug: 'stucwerk-project-3',
     title: 'Stucwerk meerdere kamers',
     description: 'Stucwerk en dunpleister door het gehele huis. Inclusief hal, woonkamer en slaapkamers.',
-    coverImage: `${BASE}/418604640_377779681363760_3756179217099327098_nfull.jpg`,
+    coverImage: `${BASE}/image11.jpeg`,
     images: [
       `${BASE}/418604640_377779681363760_3756179217099327098_nfull.jpg`,
       `${BASE}/401188181_1429566177590708_389813479765503837_nfull.jpg`,
@@ -78,7 +78,7 @@ export const staticProjects: StaticProject[] = [
     slug: 'reparatiewerk-project-1',
     title: 'Reparatiewerk na waterschade',
     description: 'Professioneel herstel van stucwerk na waterschade. Naadloze afwerking aansluitend op bestaand werk.',
-    coverImage: `${BASE}/400003198_868406317927333_7803728622075592502_nfull.jpg`,
+    coverImage: `${BASE}/image12.jpeg`,
     images: [
       `${BASE}/400003198_868406317927333_7803728622075592502_nfull.jpg`,
       `${BASE}/399444042_1295084221204039_7890261040434751089_nfull.jpg`,
@@ -90,7 +90,7 @@ export const staticProjects: StaticProject[] = [
     slug: 'stucwerk-project-4',
     title: 'Nieuwbouw stucwerk',
     description: 'Dunpleister en sausklaar stucwerk in een nieuwe woning. Opgeleverd op tijd en binnen budget.',
-    coverImage: `${BASE}/445562292_1501891280752626_3333340174875258066_nfull.webp`,
+    coverImage: `${BASE}/image13.jpeg`,
     images: [
       `${BASE}/445562292_1501891280752626_3333340174875258066_nfull.webp`,
       `${BASE}/464180016_520509874082887_6273870259091590272_nfull.webp`,
@@ -102,7 +102,7 @@ export const staticProjects: StaticProject[] = [
     slug: 'schilderwerk-project-2',
     title: 'Totaalrenovatie schilderwerk',
     description: 'Volledig schilderwerk van een woning: muren, plafonds en houtwerk in één project.',
-    coverImage: `${BASE}/399275390_686495466782022_6415886756749841898_nfull.jpg`,
+    coverImage: `${BASE}/image14.jpeg`,
     images: [
       `${BASE}/399275390_686495466782022_6415886756749841898_nfull.jpg`,
       `${BASE}/399205701_303298992572132_6476474054840144017_nfull.jpg`,
