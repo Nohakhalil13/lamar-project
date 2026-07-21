@@ -12,9 +12,10 @@ type Props = {
   heading: string;
   subheading?: string;
   services: ServiceItem[];
+  sectionImages?: string[];
 };
 
-export default function ServiceGroupSection({ heading, subheading, services }: Props) {
+export default function ServiceGroupSection({ heading, subheading, services, sectionImages }: Props) {
   // Placeholder images based on the service name for visual matching
   const getImage = (title: string) => {
     const t = title.toLowerCase();
@@ -36,8 +37,10 @@ export default function ServiceGroupSection({ heading, subheading, services }: P
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
-          {services.map((svc, i) => (
-            <div 
+          {services.map((svc, i) => {
+            const bgSrc = sectionImages?.[i] || getImage(svc.title);
+            return (
+              <div
               key={i} 
               className="rv" 
               style={{ 
@@ -54,7 +57,7 @@ export default function ServiceGroupSection({ heading, subheading, services }: P
             >
               {/* Background Image */}
               <img 
-                src={getImage(svc.title)} 
+                src={bgSrc} 
                 alt={svc.title} 
                 style={{
                   position: 'absolute',
@@ -78,7 +81,7 @@ export default function ServiceGroupSection({ heading, subheading, services }: P
               }}>
                 <div style={{
                   background: 'var(--teal2)',
-                  color: '#000',
+                  color: '#fff',
                   padding: '0.8rem 2rem',
                   fontFamily: 'var(--font-outfit)',
                   fontWeight: 700,
@@ -135,7 +138,7 @@ export default function ServiceGroupSection({ heading, subheading, services }: P
                 </Link>
               </div>
             </div>
-          ))}
+          );})}
         </div>
       </div>
     </section>

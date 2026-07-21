@@ -1,60 +1,19 @@
 import Link from 'next/link';
 import { prisma } from '@/lib/prisma';
+import { getContent } from '@/lib/content';
 import { t, type Lang } from '@/lib/i18n';
 import BentoGrid from './BentoGrid';
 
-const P = 'https://images.pexels.com/photos';
+const PEXELS = 'https://images.pexels.com/photos';
 
-const placeholders: SlotProject[] = [
-  {
-    id: 'p0',
-    slug: '',
-    title: 'Living Room Gypsum',
-    coverImageUrl: `${P}/2736139/pexels-photo-2736139.jpeg?auto=compress&cs=tinysrgb&w=900&h=520&fit=crop`,
-    images: [],
-  },
-  {
-    id: 'p1',
-    slug: '',
-    title: 'Kitchen Renovation',
-    coverImageUrl: `${P}/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=600&h=520&fit=crop`,
-    images: [],
-  },
-  {
-    id: 'p2',
-    slug: '',
-    title: 'Full House Restoration',
-    coverImageUrl: `${P}/5691530/pexels-photo-5691530.jpeg?auto=compress&cs=tinysrgb&w=800&h=720&fit=crop`,
-    images: [],
-  },
-  {
-    id: 'p3',
-    slug: '',
-    title: 'Ceiling Detail Work',
-    coverImageUrl: `${P}/16764180/pexels-photo-16764180.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop`,
-    images: [],
-  },
-  {
-    id: 'p4',
-    slug: '',
-    title: 'Interior Painting',
-    coverImageUrl: `${P}/5493654/pexels-photo-5493654.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop`,
-    images: [],
-  },
-  {
-    id: 'p5',
-    slug: '',
-    title: 'Bathroom Renovation',
-    coverImageUrl: `${P}/7045358/pexels-photo-7045358.jpeg?auto=compress&cs=tinysrgb&w=800&h=520&fit=crop`,
-    images: [],
-  },
-  {
-    id: 'p6',
-    slug: '',
-    title: 'Wall Restoration',
-    coverImageUrl: `${P}/3990359/pexels-photo-3990359.jpeg?auto=compress&cs=tinysrgb&w=800&h=520&fit=crop`,
-    images: [],
-  },
+const PEXELS_FALLBACKS: SlotProject[] = [
+  { id: 'p0', slug: '', title: '', coverImageUrl: `${PEXELS}/2736139/pexels-photo-2736139.jpeg?auto=compress&cs=tinysrgb&w=900&h=520&fit=crop`, images: [] },
+  { id: 'p1', slug: '', title: '', coverImageUrl: `${PEXELS}/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=600&h=520&fit=crop`, images: [] },
+  { id: 'p2', slug: '', title: '', coverImageUrl: `${PEXELS}/5691530/pexels-photo-5691530.jpeg?auto=compress&cs=tinysrgb&w=800&h=720&fit=crop`, images: [] },
+  { id: 'p3', slug: '', title: '', coverImageUrl: `${PEXELS}/16764180/pexels-photo-16764180.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop`, images: [] },
+  { id: 'p4', slug: '', title: '', coverImageUrl: `${PEXELS}/5493654/pexels-photo-5493654.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop`, images: [] },
+  { id: 'p5', slug: '', title: '', coverImageUrl: `${PEXELS}/7045358/pexels-photo-7045358.jpeg?auto=compress&cs=tinysrgb&w=800&h=520&fit=crop`, images: [] },
+  { id: 'p6', slug: '', title: '', coverImageUrl: `${PEXELS}/3990359/pexels-photo-3990359.jpeg?auto=compress&cs=tinysrgb&w=800&h=520&fit=crop`, images: [] },
 ];
 
 export type SlotProject = {
@@ -67,6 +26,22 @@ export type SlotProject = {
 
 export default async function GallerySection({ lang }: { lang: Lang }) {
   const tr = t[lang].gallery;
+
+  // ── admin-uploaded images (Afbeeldingen → Onze Projecten) ────────────────
+  let adminImages: string[] = [];
+  try {
+    const raw = await getContent('images:home:projecten', '[]');
+    adminImages = JSON.parse(raw);
+  } catch { /**/ }
+
+  // Build placeholders: admin images first, then Pexels fallbacks
+  const placeholders: SlotProject[] = Array.from({ length: 7 }, (_, i) => {
+    if (adminImages[i]) {
+      return { id: `admin-p${i}`, slug: '', title: '', coverImageUrl: adminImages[i], images: [] };
+    }
+    return PEXELS_FALLBACKS[i];
+  });
+  // ─────────────────────────────────────────────────────────────────────────
 
   const dbProjects = await prisma.project
     .findMany({

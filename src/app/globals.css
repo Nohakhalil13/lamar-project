@@ -8,8 +8,8 @@
   --white:   #1A1A1A;
   --white2:  #333333;
   --white3:  #999999;
-  --teal:    #1A1A1A;
-  --teal2:   #ffd935;
+  --teal:    #1a6b8c;
+  --teal2:   #2596be;
   --border:  #E8E8E8;
   --border2: #DDDDDD;
   --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
@@ -67,13 +67,13 @@ body {
 .rv.d4 { transition-delay: 0.48s; }
 
 /* ── Hover effects for server components ──────────── */
-.btn-teal          { background: var(--teal2) !important; color: #000000 !important; transition: background 0.2s, color 0.2s !important; }
+.btn-teal          { background: var(--teal2) !important; color: #FFFFFF !important; transition: background 0.2s, color 0.2s !important; }
 .btn-teal:hover    { background: var(--teal) !important; color: #FFFFFF !important; }
-.btn-fill:hover    { background: var(--teal2) !important; color: #000000 !important; }
+.btn-fill:hover    { background: var(--teal2) !important; color: #FFFFFF !important; }
 .btn-line:hover    { border-color: var(--teal2) !important; color: var(--teal2) !important; }
 .btn-outline:hover { border-color: var(--teal2) !important; color: var(--teal2) !important; }
 .nav-link:hover    { color: var(--teal2) !important; }
-.nav-cta           { background: var(--teal2) !important; color: #000000 !important; transition: background 0.2s, color 0.2s !important; }
+.nav-cta           { background: var(--teal2) !important; color: #FFFFFF !important; transition: background 0.2s, color 0.2s !important; }
 .nav-cta:hover     { background: var(--teal) !important; color: #FFFFFF !important; }
 .svc-card:hover    { border-color: var(--teal2) !important; transform: translateY(-4px); }
 .qual-pill:hover   { border-color: var(--teal2) !important; color: var(--teal2) !important; }
@@ -131,8 +131,8 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(255,217,53,0.12);
-  border: 1px solid rgba(255,217,53,0.3);
+  background: rgba(37,150,190,0.10);
+  border: 1px solid rgba(37,150,190,0.28);
   border-radius: 50px;
   padding: 0.35rem 1.1rem;
   margin-bottom: 1.5rem;

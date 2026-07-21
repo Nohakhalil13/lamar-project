@@ -3,10 +3,20 @@ import { getContent } from '@/lib/content';
 import { getSiteText } from '@/lib/siteText';
 import ReviewBadges from '@/components/public/ReviewBadges';
 
+const HERO_FALLBACK = 'https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80';
+
 export default async function HeroSection({ lang }: { lang: Lang }) {
   const tr = t[lang].hero;
   const tx = await getSiteText();
   const wa = await getContent('whatsapp_number', '31630302033');
+
+  // Hero background — managed via Admin → Afbeeldingen → Hero Achtergrond
+  let heroBg = HERO_FALLBACK;
+  try {
+    const raw = await getContent('images:hero', '[]');
+    const urls: string[] = JSON.parse(raw);
+    if (urls[0]) heroBg = urls[0];
+  } catch { /* keep fallback */ }
 
   return (
     <section
@@ -19,7 +29,7 @@ export default async function HeroSection({ lang }: { lang: Lang }) {
         alignItems: 'center',
         justifyContent: 'center',
         padding: '6rem 1rem 10rem',
-        backgroundImage: 'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url("https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80")',
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url("${heroBg}")`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
@@ -77,7 +87,7 @@ export default async function HeroSection({ lang }: { lang: Lang }) {
             className="hero-btn-hover"
             style={{
               background: 'var(--teal2)',
-              color: '#000',
+              color: '#fff',
               padding: '1.2rem 2.5rem',
               fontFamily: 'var(--font-outfit)',
               fontSize: '1rem',
@@ -86,7 +96,7 @@ export default async function HeroSection({ lang }: { lang: Lang }) {
               fontWeight: 800,
               borderRadius: 4,
               display: 'inline-block',
-              boxShadow: '0 4px 15px rgba(255, 217, 53, 0.3)',
+              boxShadow: '0 4px 15px rgba(37, 150, 190, 0.35)',
               transition: 'transform 0.2s, filter 0.2s',
             }}
           >

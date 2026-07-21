@@ -80,7 +80,7 @@ export default function TopTrustBar() {
                   justifyContent: 'center',
                 }}
               >
-                <span style={{ color: '#ffd935', fontSize: '1rem', fontWeight: 700 }}>{item.icon}</span>
+                <span style={{ color: '#2596be', fontSize: '1rem', fontWeight: 700 }}>{item.icon}</span>
                 <span style={textStyle}>{item.text}</span>
               </div>
             ))}
@@ -90,7 +90,7 @@ export default function TopTrustBar() {
           <>
             {items.map((item, i) => (
               <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                <span style={{ color: '#ffd935', fontSize: '1rem', fontWeight: 700 }}>{item.icon}</span>
+                <span style={{ color: '#2596be', fontSize: '1rem', fontWeight: 700 }}>{item.icon}</span>
                 <span style={textStyle}>{item.text}</span>
               </div>
             ))}

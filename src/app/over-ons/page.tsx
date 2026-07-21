@@ -21,7 +21,7 @@ const HEADER_IMG = '/images/image01.jpg'
 type Principle = { title: string; text: string }
 
 function PrincipleCard({ item, idx }: { item: Principle; idx: number }) {
-  const colors = ['#ffd935', '#ffd935', '#ffd935', '#ffd935']
+  const colors = ['#2596be', '#2596be', '#2596be', '#2596be']
   return (
     <div style={{
       background: 'var(--bg)',
