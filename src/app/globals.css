@@ -1,34 +1,47 @@
 @import "tailwindcss";
 @import "./responsive.css";
 
+/* ── 1. Root Color Variables ─────────────────────────── */
 :root {
-  --bg:      #FFFFFF;
-  --bg2:     #F5F5F5;
-  --bg3:     #E8E8E8;
-  --white:   #1A1A1A;
-  --white2:  #333333;
-  --white3:  #999999;
-  --teal:    #1a6b8c;
-  --teal2:   #2596be;
-  --border:  #E8E8E8;
-  --border2: #DDDDDD;
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
-  --shadow-md: 0 8px 30px rgba(0,0,0,0.10);
-  --shadow-lg: 0 20px 60px rgba(0,0,0,0.14);
+  --bg: #ffffff;
+  --bg2: #f5f5f5;
+  --bg3: #e8e8e8;
+  --white: #1a1a1a;
+  --white2: #333333;
+  --white3: #999999;
+
+  /* الألوان الجديدة */
+  --plum: #321338; /* الباذنجاني */
+  --emerald: #007a63; /* الأخضر */
+
+  /* تعيين المتغيرات الأساسية للموقع بناءً على الألوان الجديدة */
+  --teal: var(--plum);
+  --teal2: var(--emerald);
+
+  --border: #e8e8e8;
+  --border2: #dddddd;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.14);
   --radius-sm: 8px;
   --radius-md: 16px;
   --radius-lg: 20px;
   --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* ── 2. Tailwind v4 Theme Configuration ────────────── */
 @theme inline {
-  --color-bg:      var(--bg);
-  --color-bg2:     var(--bg2);
-  --color-bg3:     var(--bg3);
-  --color-brand:   var(--white);
-  --color-muted:   var(--white2);
-  --color-teal:    var(--teal);
-  --color-teal2:   var(--teal2);
+  --color-bg: var(--bg);
+  --color-bg2: var(--bg2);
+  --color-bg3: var(--bg3);
+  --color-brand: var(--white);
+  --color-muted: var(--white2);
+
+  /* ربط المتغيرات بـ Tailwind عشان تقدر تستخدم bg-plum أو text-emerald أو bg-teal */
+  --color-plum: var(--plum);
+  --color-emerald: var(--emerald);
+  --color-teal: var(--teal);
+  --color-teal2: var(--teal2);
 }
 
 html {
@@ -46,7 +59,9 @@ body {
 .rv {
   opacity: 0;
   transform: translateY(28px);
-  transition: opacity 0.75s ease, transform 0.75s ease;
+  transition:
+    opacity 0.75s ease,
+    transform 0.75s ease;
 }
 .rv.on {
   opacity: 1;
@@ -55,37 +70,96 @@ body {
 .rvl {
   opacity: 0;
   transform: translateX(-28px);
-  transition: opacity 0.75s ease, transform 0.75s ease;
+  transition:
+    opacity 0.75s ease,
+    transform 0.75s ease;
 }
 .rvl.on {
   opacity: 1;
   transform: translateX(0);
 }
-.rv.d1 { transition-delay: 0.12s; }
-.rv.d2 { transition-delay: 0.25s; }
-.rv.d3 { transition-delay: 0.38s; }
-.rv.d4 { transition-delay: 0.48s; }
+.rv.d1 {
+  transition-delay: 0.12s;
+}
+.rv.d2 {
+  transition-delay: 0.25s;
+}
+.rv.d3 {
+  transition-delay: 0.38s;
+}
+.rv.d4 {
+  transition-delay: 0.48s;
+}
 
 /* ── Hover effects for server components ──────────── */
-.btn-teal          { background: var(--teal2) !important; color: #FFFFFF !important; transition: background 0.2s, color 0.2s !important; }
-.btn-teal:hover    { background: var(--teal) !important; color: #FFFFFF !important; }
-.btn-fill:hover    { background: var(--teal2) !important; color: #FFFFFF !important; }
-.btn-line:hover    { border-color: var(--teal2) !important; color: var(--teal2) !important; }
-.btn-outline:hover { border-color: var(--teal2) !important; color: var(--teal2) !important; }
-.nav-link:hover    { color: var(--teal2) !important; }
-.nav-cta           { background: var(--teal2) !important; color: #FFFFFF !important; transition: background 0.2s, color 0.2s !important; }
-.nav-cta:hover     { background: var(--teal) !important; color: #FFFFFF !important; }
-.svc-card:hover    { border-color: var(--teal2) !important; transform: translateY(-4px); }
-.qual-pill:hover   { border-color: var(--teal2) !important; color: var(--teal2) !important; }
-.view-all:hover    { color: var(--teal2) !important; border-bottom-color: var(--teal2) !important; }
-.footer-link:hover { color: var(--teal2) !important; }
-.tcard:hover       { border-color: var(--border2) !important; }
-.tcard.featured    { border-color: var(--teal2) !important; background: var(--bg) !important; }
+.btn-teal {
+  background: var(--teal2) !important;
+  color: #000000 !important;
+  transition:
+    background 0.2s,
+    color 0.2s !important;
+}
+.btn-teal:hover {
+  background: var(--teal) !important;
+  color: #ffffff !important;
+}
+.btn-fill:hover {
+  background: var(--teal2) !important;
+  color: #000000 !important;
+}
+.btn-line:hover {
+  border-color: var(--teal2) !important;
+  color: var(--teal2) !important;
+}
+.btn-outline:hover {
+  border-color: var(--teal2) !important;
+  color: var(--teal2) !important;
+}
+.nav-link:hover {
+  color: var(--teal2) !important;
+}
+.nav-cta {
+  background: var(--teal2) !important;
+  color: #000000 !important;
+  transition:
+    background 0.2s,
+    color 0.2s !important;
+}
+.nav-cta:hover {
+  background: var(--teal) !important;
+  color: #ffffff !important;
+}
+.svc-card:hover {
+  border-color: var(--teal2) !important;
+  transform: translateY(-4px);
+}
+.qual-pill:hover {
+  border-color: var(--teal2) !important;
+  color: var(--teal2) !important;
+}
+.view-all:hover {
+  color: var(--teal2) !important;
+  border-bottom-color: var(--teal2) !important;
+}
+.footer-link:hover {
+  color: var(--teal2) !important;
+}
+.tcard:hover {
+  border-color: var(--border2) !important;
+}
+.tcard.featured {
+  border-color: var(--teal2) !important;
+  background: var(--bg) !important;
+}
 
 /* ── Ticker ────────────────────────────────────────── */
 @keyframes tick {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 .ticker-track {
   animation: tick 30s linear infinite;
@@ -95,19 +169,33 @@ body {
 }
 
 /* ── Admin ─────────────────────────────────────────── */
-.move-btn:hover         { border-color: #2ABFA8 !important; color: #2ABFA8 !important; }
-.quick-action-card:hover { border-color: #2ABFA8 !important; }
+.move-btn:hover {
+  border-color: var(--emerald) !important;
+  color: var(--emerald) !important;
+}
+.quick-action-card:hover {
+  border-color: var(--emerald) !important;
+}
 
 /* ── Projects public pages ─────────────────────────── */
-.project-card:hover { border-color: var(--teal2) !important; transform: translateY(-3px); }
-.project-card:hover .project-cover-img { transform: scale(1.04); }
-.gallery-thumb:hover { transform: translateY(-2px); }
-.gallery-thumb:hover .gallery-thumb-img { transform: scale(1.05); }
+.project-card:hover {
+  border-color: var(--teal2) !important;
+  transform: translateY(-3px);
+}
+.project-card:hover .project-cover-img {
+  transform: scale(1.04);
+}
+.gallery-thumb:hover {
+  transform: translateY(-2px);
+}
+.gallery-thumb:hover .gallery-thumb-img {
+  transform: scale(1.05);
+}
 
 /* ── Utilities ─────────────────────────────────────── */
 .hide-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
@@ -119,7 +207,10 @@ body {
 
 /* ── Premium card hover ─────────────────────────────── */
 .card-hover {
-  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
 }
 .card-hover:hover {
   transform: translateY(-4px);
@@ -131,8 +222,8 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(37,150,190,0.10);
-  border: 1px solid rgba(37,150,190,0.28);
+  background: rgba(0, 122, 99, 0.08);
+  border: 1px solid rgba(0, 122, 99, 0.2);
   border-radius: 50px;
   padding: 0.35rem 1.1rem;
   margin-bottom: 1.5rem;
@@ -171,10 +262,423 @@ body {
 
 /* ── Werkwijze responsive ────────────────────────────── */
 @media (max-width: 768px) {
-  .ww-grid { display: none !important; }
-  .ww-vertical { display: flex !important; flex-direction: column; }
+  .ww-grid {
+    display: none !important;
+  }
+  .ww-vertical {
+    display: flex !important;
+    flex-direction: column;
+  }
 }
 
 /* ── Pageheader breadcrumb ───────────────────────────── */
-.breadcrumb-link { transition: color 0.2s; }
-.breadcrumb-link:hover { color: var(--teal2) !important; }
+.breadcrumb-link {
+  transition: color 0.2s;
+}
+.breadcrumb-link:hover {
+  color: var(--teal2) !important;
+}
+
+/* ── Global overflow guard ─────────────────────────────────────────────────── */
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+section,
+footer,
+nav {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── Responsive overrides ───────────────────────────────────────────────────────── */
+@media (max-width: 1023px) {
+  nav {
+    padding: 1rem 1.5rem !important;
+  }
+  #hero {
+    padding: 6rem 1.5rem 3rem !important;
+  }
+  #hero .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+  #hero .hero-media {
+    max-width: 100% !important;
+    margin-left: 0 !important;
+  }
+  #services {
+    padding: 5rem 1.5rem !important;
+  }
+  #services > div:last-child {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  #about {
+    padding: 6rem 1.5rem !important;
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+  }
+  #vision {
+    padding: 6rem 1.5rem !important;
+  }
+  #vision .vision-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+  }
+  #process {
+    padding: 5rem 1.5rem !important;
+  }
+  #benefits {
+    padding: 5rem 1.5rem !important;
+  }
+  #benefits .ben-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+  #benefits .ben-img {
+    height: 420px !important;
+  }
+  #our-work {
+    padding: 5rem 1.5rem !important;
+  }
+  #testimonials {
+    padding: 5rem 1.5rem !important;
+  }
+  #testimonials > div:last-child {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  #faq {
+    padding: 5rem 1.5rem !important;
+  }
+  #faq .faq-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  #how-it-works {
+    padding: 5rem 1.5rem !important;
+    background: var(--bg2) !important;
+  }
+  #how-it-works .chat-stage {
+    height: auto !important;
+    max-width: 480px !important;
+  }
+  #how-it-works .chat-bg,
+  #how-it-works .chat-strip,
+  #how-it-works .chat-grad {
+    display: none !important;
+  }
+  #how-it-works .chat-head {
+    position: static !important;
+    transform: none !important;
+    width: 100% !important;
+    margin: 0 auto 2rem !important;
+  }
+  #how-it-works .chat-col {
+    position: static !important;
+    width: 100% !important;
+    max-width: 460px !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    margin: 1.25rem auto 0 !important;
+  }
+  #how-it-works .chat-fb {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  #contact {
+    padding: 5rem 1.5rem !important;
+  }
+  #contact .contact-panel {
+    padding: 2.5rem 1.5rem !important;
+  }
+  #contact .contact-cards {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  footer {
+    padding: 3rem 1.5rem 2rem !important;
+  }
+  .site-footer-grid {
+    gap: 2rem !important;
+  }
+}
+
+@media (max-width: 767px) {
+  nav {
+    padding: 0.9rem 1.25rem !important;
+  }
+  #hero {
+    padding: calc(75px + 1.5rem) 1.25rem 2.5rem !important;
+  }
+  #hero .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  #services {
+    padding: 4rem 1.25rem !important;
+  }
+  #services > div:last-child {
+    grid-template-columns: 1fr !important;
+  }
+  #about {
+    padding: 4rem 1.25rem !important;
+    gap: 2rem !important;
+  }
+  #about > div:last-child {
+    display: none !important;
+  }
+  #vision {
+    padding: 4rem 1.25rem !important;
+  }
+  #vision .vision-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  #process {
+    padding: 4rem 1.25rem !important;
+  }
+  #benefits {
+    padding: 4rem 1.25rem !important;
+  }
+  #benefits .ben-img {
+    height: 320px !important;
+  }
+  #process .proc-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.85rem !important;
+  }
+  #process .proc-card {
+    padding: 1.5rem 0.75rem !important;
+    border-radius: 14px !important;
+    gap: 0.35rem !important;
+  }
+  .process-line {
+    display: none !important;
+  }
+  #our-work {
+    padding: 4rem 1.25rem !important;
+  }
+  .gallery-bento {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-rows: none !important;
+    grid-auto-rows: 160px !important;
+  }
+  .gallery-bento > * {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    height: 160px !important;
+    min-height: 0 !important;
+  }
+  #testimonials {
+    padding: 4rem 1.25rem !important;
+  }
+  #testimonials > div:last-child {
+    grid-template-columns: 1fr !important;
+  }
+  #how-it-works {
+    padding: 4rem 1.25rem !important;
+  }
+  #faq {
+    padding: 4rem 1.25rem !important;
+  }
+  #contact {
+    padding: 4rem 1.25rem !important;
+  }
+  #contact .contact-cards {
+    grid-template-columns: 1fr !important;
+  }
+  footer {
+    padding: 2.5rem 1.25rem 1.5rem !important;
+  }
+  .site-footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .wa-float {
+    bottom: 16px !important;
+    right: 16px !important;
+    width: 52px !important;
+    height: 52px !important;
+  }
+  #offerte > div > div > div:last-child {
+    display: none !important;
+  }
+  #offerte > div > div {
+    grid-template-columns: 1fr !important;
+  }
+  .wcu-grid {
+    grid-template-columns: 1fr !important;
+  }
+  #hero {
+    padding-top: 4rem !important;
+    padding-bottom: 6rem !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  .projects-header {
+    padding: 5rem 1.5rem 3rem !important;
+  }
+  .projects-grid {
+    padding: 2rem 1.5rem 6rem !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .projects-header {
+    padding: 4rem 1.25rem 2rem !important;
+  }
+  .projects-grid {
+    padding: 1.5rem 1.25rem 4rem !important;
+    grid-template-columns: 1fr !important;
+  }
+  .lb-prev,
+  .lb-next {
+    padding: 0.5rem 0.65rem !important;
+    font-size: 1.2rem !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  #over-intro {
+    padding: 5rem 1.5rem !important;
+  }
+  #over-intro .over-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+  #over-intro .over-img {
+    height: 420px !important;
+  }
+}
+@media (max-width: 767px) {
+  #over-intro {
+    padding: 4rem 1.25rem !important;
+  }
+  #over-intro .over-img {
+    height: 320px !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  #info-top {
+    padding: 5rem 1.5rem 0 !important;
+  }
+  .info-hero {
+    min-height: 0 !important;
+    padding: 2.5rem !important;
+  }
+  #info-cards {
+    padding: 3rem 1.5rem 5rem !important;
+  }
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+}
+@media (max-width: 767px) {
+  #info-top {
+    padding: calc(75px + 1.5rem) 1.25rem 0 !important;
+  }
+  .info-hero {
+    padding: 1.75rem !important;
+  }
+  .info-hero-card {
+    max-width: 100% !important;
+  }
+  #info-cards {
+    padding: 2.5rem 1.25rem 4rem !important;
+  }
+  .info-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  #offerte-top {
+    padding: 3rem 1.5rem 4rem !important;
+  }
+  .oa-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .oa-sidebar {
+    position: static !important;
+    top: auto !important;
+  }
+}
+@media (max-width: 767px) {
+  #offerte-top {
+    padding: 2.5rem 1.25rem 3.5rem !important;
+  }
+  .oa-chips {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .oa-measure-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .oa-woning {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .oa-stepper .oa-step {
+    min-width: 0 !important;
+  }
+  .oa-stepper .oa-step span:first-child {
+    font-size: 0.74rem !important;
+  }
+  .oa-formcard {
+    padding: 1.5rem !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  #werkwijze-intro {
+    padding: 4rem 1.5rem 3rem !important;
+  }
+  #werkwijze-intro .ww-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media (max-width: 767px) {
+  #werkwijze-intro {
+    padding: 3rem 1.25rem 2.5rem !important;
+  }
+  #werkwijze-intro .ww-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .ww-banner {
+    padding: 2.5rem 1.25rem !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  #contact-main {
+    padding: 4rem 1.5rem 5rem !important;
+  }
+  #contact-main > div {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+}
+@media (max-width: 767px) {
+  #contact-main {
+    padding: 3rem 1.25rem 4rem !important;
+  }
+  #contact-main > div {
+    gap: 2rem !important;
+  }
+  .contact-name-row {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.contact-wa-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3) !important;
+}

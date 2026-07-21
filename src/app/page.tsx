@@ -54,16 +54,16 @@ export default async function Home() {
         <ServiceGroupSection 
           heading="Stukadoorswerk" 
           subheading="Strakke wanden en plafonds, perfect afgewerkt."
-          services={stucwerkServices}
-          sectionImages={stucImages}
+          services={stucwerkServices} 
+          startIndex={0}
         />
 
         {/* Service Section 2 */}
         <ServiceGroupSection 
           heading="Schilderwerk" 
           subheading="Kwalitatief schilderwerk voor binnen en buiten."
-          services={schilderwerkServices}
-          sectionImages={schilderImages}
+          services={schilderwerkServices} 
+          startIndex={3}
         />
 
         {/* Portfolio Section */}

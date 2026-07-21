@@ -60,7 +60,7 @@ export default async function ProjectsPage() {
             <h2 style={{ fontFamily: 'var(--font-archivo)', fontWeight: 800, fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: 'var(--white)', marginBottom: '0.75rem' }}>
               Projecten
             </h2>
-            <div style={{ width: 60, height: 4, background: 'var(--teal2)', margin: '0 auto 1.5rem', borderRadius: 2 }} />
+            <div style={{ width: 60, height: 4, background: 'var(--emerald)', margin: '0 auto 1.5rem', borderRadius: 2 }} />
             <p style={{ color: 'var(--white2)', fontSize: '1rem', lineHeight: 1.7, fontFamily: 'var(--font-outfit)' }}>
               Op Google kunt u onze reviews terugvinden. Daar staan de werkzaamheden die wij in het verleden hebben verricht, samen met de referenties van onze opdrachtgevers.
             </p>
@@ -74,7 +74,7 @@ export default async function ProjectsPage() {
               {staticProjects.map((project) => (
                 <div
                   key={project.id}
-                  style={{ borderRadius: 8, overflow: 'hidden', background: 'var(--bg2)', border: '1px solid var(--border)', transition: 'transform 0.25s, border-color 0.25s' }}
+                  style={{ borderRadius: 12, overflow: 'hidden', background: 'var(--bg2)', border: '1px solid var(--border)', transition: 'all 0.3s ease' }}
                   className="project-card"
                 >
                   {/* Multi-image strip: large left + 2 small right */}
@@ -102,11 +102,11 @@ export default async function ProjectsPage() {
                     )}
                   </div>
                   {/* Info */}
-                  <div style={{ padding: '1.25rem 1.5rem' }}>
+                  <div style={{ padding: '1.5rem' }}>
                     <h3 style={{ fontFamily: 'var(--font-archivo)', fontWeight: 700, fontSize: '1.1rem', color: 'var(--white)', marginBottom: '0.4rem' }}>
                       {project.title}
                     </h3>
-                    <p style={{ fontSize: '0.875rem', color: 'var(--white2)', lineHeight: 1.6, margin: 0 }}>
+                    <p style={{ fontSize: '0.875rem', color: 'var(--white2)', lineHeight: 1.6, margin: 0, fontFamily: 'var(--font-outfit)' }}>
                       {project.description}
                     </p>
                   </div>
@@ -122,7 +122,7 @@ export default async function ProjectsPage() {
                   <Link
                     key={project.id}
                     href={`/projects/${project.slug}`}
-                    style={{ textDecoration: 'none', display: 'block', borderRadius: 8, overflow: 'hidden', background: 'var(--bg2)', border: '1px solid var(--border)', transition: 'border-color 0.2s, transform 0.2s' }}
+                    style={{ textDecoration: 'none', display: 'block', borderRadius: 12, overflow: 'hidden', background: 'var(--bg2)', border: '1px solid var(--border)', transition: 'all 0.3s ease' }}
                     className="project-card"
                   >
                     <div style={{ height: 220, background: 'var(--bg2)', position: 'relative', overflow: 'hidden' }}>
@@ -139,7 +139,7 @@ export default async function ProjectsPage() {
                         </div>
                       )}
                       {count > 0 && (
-                        <div style={{ position: 'absolute', bottom: 12, right: 12, background: 'rgba(12,12,10,0.75)', backdropFilter: 'blur(8px)', padding: '0.25rem 0.65rem', borderRadius: 3, fontSize: '0.65rem', letterSpacing: '0.1em', color: '#fff', fontFamily: 'var(--font-archivo)' }}>
+                        <div style={{ position: 'absolute', bottom: 12, right: 12, background: 'rgba(12,12,10,0.75)', backdropFilter: 'blur(8px)', padding: '0.25rem 0.65rem', borderRadius: 4, fontSize: '0.65rem', letterSpacing: '0.1em', color: '#fff', fontFamily: 'var(--font-archivo)' }}>
                           {count} foto&apos;s
                         </div>
                       )}
@@ -149,11 +149,11 @@ export default async function ProjectsPage() {
                         {project.title}
                       </h3>
                       {project.description && (
-                        <p style={{ fontSize: '0.875rem', color: 'var(--white2)', lineHeight: 1.65, fontWeight: 300, marginBottom: '1rem', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                        <p style={{ fontSize: '0.875rem', color: 'var(--white2)', lineHeight: 1.65, fontWeight: 300, marginBottom: '1rem', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden', fontFamily: 'var(--font-outfit)' }}>
                           {project.description}
                         </p>
                       )}
-                      <span style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--teal2)', fontFamily: 'var(--font-archivo)', fontWeight: 600 }}>
+                      <span style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--emerald)', fontFamily: 'var(--font-archivo)', fontWeight: 600 }}>
                         {tr.viewProject} →
                       </span>
                     </div>
@@ -165,22 +165,54 @@ export default async function ProjectsPage() {
         </section>
 
         {/* Bottom CTA */}
-        <section style={{ padding: '4rem 1.5rem', background: 'var(--bg2)', borderTop: '1px solid var(--border)', textAlign: 'center' }}>
+        <section style={{ padding: '5rem 1.5rem', background: 'var(--bg2)', borderTop: '1px solid var(--border)', textAlign: 'center' }}>
           <div style={{ maxWidth: 700, margin: '0 auto' }}>
             <h2 style={{ fontFamily: 'var(--font-archivo)', fontWeight: 800, fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', color: 'var(--white)', marginBottom: '1rem' }}>
               Wil jij ook zulk werk?
             </h2>
-            <p style={{ color: 'var(--white2)', fontSize: '1rem', lineHeight: 1.8, marginBottom: '1.75rem', fontFamily: 'var(--font-outfit)' }}>
+            <p style={{ color: 'var(--white2)', fontSize: '1rem', lineHeight: 1.8, marginBottom: '2rem', fontFamily: 'var(--font-outfit)' }}>
               Vraag vandaag nog een vrijblijvende offerte aan. Wij reageren binnen 24 uur.
             </p>
-            <Link href="/offerte-aanvragen" style={{ background: 'var(--teal2)', color: '#1A1A1A', padding: '0.85rem 2.5rem', borderRadius: 4, textDecoration: 'none', fontWeight: 800, fontSize: '1rem', fontFamily: 'var(--font-outfit)' }}>
-              OFFERTE AANVRAGEN
+            <Link
+              href="/offerte-aanvragen"
+              className="btn-emerald"
+              style={{
+                background: 'var(--emerald)',
+                color: '#FFFFFF',
+                padding: '0.9rem 2.5rem',
+                borderRadius: 6,
+                textDecoration: 'none',
+                fontWeight: 800,
+                fontSize: '0.95rem',
+                fontFamily: 'var(--font-outfit)',
+                letterSpacing: '0.04em',
+                textTransform: 'uppercase',
+                display: 'inline-block',
+                transition: 'all 0.3s ease',
+              }}
+            >
+              Offerte aanvragen →
             </Link>
           </div>
         </section>
 
       </main>
       <Footer lang={lang} />
+
+      <style>{`
+        .project-card:hover {
+          border-color: rgba(46, 90, 68, 0.4) !important;
+          transform: translateY(-4px);
+          box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .project-card:hover .project-cover-img {
+          transform: scale(1.05);
+        }
+        .btn-emerald:hover {
+          filter: brightness(1.1);
+          transform: translateY(-2px);
+        }
+      `}</style>
     </>
   )
 }

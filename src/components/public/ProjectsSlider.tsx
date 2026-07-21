@@ -24,7 +24,7 @@ export default async function ProjectsSlider({ lang }: { lang: Lang }) {
   if (!projects || projects.length === 0) return null;
 
   return (
-    <section id="portfolio-slider" style={{ background: 'var(--bg)', padding: '6rem 0 8rem', overflow: 'hidden' }}>
+    <section id="portfolio-slider" style={{ background: '#F8FAFC', padding: '6rem 0 8rem', overflow: 'hidden' }}>
       <style>{`
         .portfolio-track {
           display: flex;
@@ -95,21 +95,21 @@ export default async function ProjectsSlider({ lang }: { lang: Lang }) {
       
       <div className="rv" style={{ padding: '0 3.5rem', maxWidth: 1200, margin: '0 auto 3rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '2rem' }}>
         <div>
-          <div style={{ fontSize: '0.63rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: 'var(--teal2)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-            <span style={{ display: 'block', width: '1.5rem', height: 1, background: 'var(--teal2)', flexShrink: 0 }} />
+          <div style={{ fontSize: '0.63rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: 'var(--emberd)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.6rem', fontWeight: 700 }}>
+            <span style={{ display: 'block', width: '1.5rem', height: 2, background: 'var(--emberd)', flexShrink: 0 }} />
             Portfolio
           </div>
-          <h2 style={{ fontFamily: 'var(--font-archivo)', fontWeight: 700, fontSize: 'clamp(2rem,4vw,3.5rem)', lineHeight: 1.1, letterSpacing: '0.01em', color: 'var(--white)', margin: 0 }}>
-            Onze <span style={{ color: 'var(--teal2)' }}>Projecten</span>
+          <h2 style={{ fontFamily: 'var(--font-archivo)', fontWeight: 700, fontSize: 'clamp(2rem,4vw,3.5rem)', lineHeight: 1.1, letterSpacing: '0.01em', color: '#1A1A1A', margin: 0 }}>
+            Onze <span style={{ color: 'var(--emberd)' }}>Projecten</span>
           </h2>
         </div>
         
         <div style={{ display: 'flex', gap: '1rem' }}>
           {/* Decorative swipe arrows to hint horizontal scroll */}
-          <div style={{ width: 48, height: 48, borderRadius: '50%', border: '1px solid var(--border)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--white2)' }}>
+          <div style={{ width: 48, height: 48, borderRadius: '50%', border: '1px solid #E2E8F0', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#64748B' }}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
           </div>
-          <div style={{ width: 48, height: 48, borderRadius: '50%', border: '1px solid var(--border)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--teal2)' }}>
+          <div style={{ width: 48, height: 48, borderRadius: '50%', border: '1px solid var(--emberd)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--emberd)', background: 'rgba(0,128,128,0.05)' }}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           </div>
         </div>
@@ -127,7 +127,7 @@ export default async function ProjectsSlider({ lang }: { lang: Lang }) {
                 <h3 style={{ fontFamily: 'var(--font-archivo)', fontWeight: 700, fontSize: '1.75rem', color: '#FFFFFF', margin: 0, lineHeight: 1.1 }}>
                   {item.title}
                 </h3>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'var(--teal2)', fontSize: '0.85rem', fontWeight: 600, fontFamily: 'var(--font-outfit)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: '#5EEAD4', fontSize: '0.85rem', fontWeight: 600, fontFamily: 'var(--font-outfit)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
                   {tr.viewProject}
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
                 </div>

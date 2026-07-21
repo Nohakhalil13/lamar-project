@@ -33,12 +33,12 @@ const SOORT_BOUW_OPTIONS = [
 const inputStyle: React.CSSProperties = {
   width: '100%',
   padding: '0.9rem 1rem',
-  border: '1px solid #ddd',
-  borderRadius: 6,
+  border: '1px solid var(--border2)',
+  borderRadius: 8,
   fontSize: '0.95rem',
   fontFamily: 'var(--font-outfit)',
-  background: '#f9f9f9',
-  color: '#1a1a1a',
+  background: 'var(--bg2)',
+  color: 'var(--white)',
   outline: 'none',
   transition: 'border-color 0.2s, background 0.2s',
   boxSizing: 'border-box',
@@ -49,7 +49,7 @@ const labelStyle: React.CSSProperties = {
   fontFamily: 'var(--font-archivo)',
   fontWeight: 700,
   fontSize: '0.9rem',
-  color: '#1a1a1a',
+  color: 'var(--white)',
   marginBottom: '0.5rem',
 };
 
@@ -133,20 +133,20 @@ export default function OffertePage() {
         <div style={{ maxWidth: 560, margin: '4rem auto', textAlign: 'center' }}>
           <div style={{
             width: 72, height: 72, borderRadius: '50%',
-            background: 'var(--teal2)', display: 'flex', alignItems: 'center',
+            background: 'var(--emerald)', color: '#fff', display: 'flex', alignItems: 'center',
             justifyContent: 'center', margin: '0 auto 1.5rem', fontSize: '2rem',
           }}>✓</div>
-          <h2 style={{ fontFamily: 'var(--font-archivo)', fontWeight: 800, fontSize: '1.8rem', marginBottom: '1rem' }}>
+          <h2 style={{ fontFamily: 'var(--font-archivo)', fontWeight: 800, fontSize: '1.8rem', marginBottom: '1rem', color: 'var(--white)' }}>
             Aanvraag verzonden!
           </h2>
-          <p style={{ color: '#555', lineHeight: 1.7, marginBottom: '2rem', fontFamily: 'var(--font-outfit)' }}>
+          <p style={{ color: 'var(--white2)', lineHeight: 1.7, marginBottom: '2rem', fontFamily: 'var(--font-outfit)' }}>
             Bedankt voor uw aanvraag. Wij streven ernaar om binnen <strong>één werkdag</strong> een passende offerte te sturen.
             WhatsApp wordt geopend zodat u eventuele foto&apos;s direct kunt meesturen.
           </p>
           <Link href="/" style={{
-            background: 'var(--teal2)', color: '#000', padding: '0.9rem 2.5rem',
-            borderRadius: 6, textDecoration: 'none', fontFamily: 'var(--font-archivo)',
-            fontWeight: 800, fontSize: '0.95rem',
+            background: 'var(--emerald)', color: '#fff', padding: '0.9rem 2.5rem',
+            borderRadius: 8, textDecoration: 'none', fontFamily: 'var(--font-archivo)',
+            fontWeight: 800, fontSize: '0.95rem', display: 'inline-block',
           }}>← Terug naar home</Link>
         </div>
       </PageShell>
@@ -156,8 +156,8 @@ export default function OffertePage() {
   return (
     <PageShell>
       <style>{`
-        .of-input:focus { border-color: var(--teal2) !important; background: #fff !important; }
-        .of-dienst:hover { border-color: var(--teal2) !important; }
+        .of-input:focus { border-color: var(--emerald) !important; background: var(--bg) !important; }
+        .of-dienst:hover { border-color: var(--emerald) !important; }
         .of-submit:hover { filter: brightness(0.92); }
         select.of-input { appearance: auto; }
       `}</style>
@@ -166,22 +166,22 @@ export default function OffertePage() {
       <div style={{ marginBottom: '2.5rem' }}>
         <div style={{
           display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-          background: 'rgba(255,217,53,0.12)', border: '1px solid rgba(255,217,53,0.35)',
+          background: 'rgba(0, 122, 99, 0.08)', border: '1px solid rgba(0, 122, 99, 0.2)',
           borderRadius: 50, padding: '0.35rem 1.1rem', marginBottom: '1rem',
         }}>
-          <span style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--teal2)', display: 'block' }} />
-          <span style={{ fontFamily: 'var(--font-outfit)', fontWeight: 600, fontSize: '0.78rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--teal2)' }}>
+          <span style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--emerald)', display: 'block' }} />
+          <span style={{ fontFamily: 'var(--font-outfit)', fontWeight: 600, fontSize: '0.78rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--emerald)' }}>
             Vrijblijvend & Gratis
           </span>
         </div>
         <h1 style={{
           fontFamily: 'var(--font-archivo)', fontWeight: 800,
-          fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: '#1a1a1a',
+          fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: 'var(--white)',
           lineHeight: 1.2, marginBottom: '0.75rem',
         }}>
           Offerte aanvragen
         </h1>
-        <p style={{ color: '#555', fontSize: '1rem', fontFamily: 'var(--font-outfit)', lineHeight: 1.65, maxWidth: 560 }}>
+        <p style={{ color: 'var(--white2)', fontSize: '1rem', fontFamily: 'var(--font-outfit)', lineHeight: 1.65, maxWidth: 560 }}>
           Vul het formulier in en ontvang binnen <strong>1 werkdag</strong> een vrijblijvende offerte op maat.
         </p>
       </div>
@@ -194,11 +194,11 @@ export default function OffertePage() {
 
           {/* Section: Uw gegevens */}
           <div style={{
-            background: '#fff', borderRadius: 12,
-            padding: '2rem', border: '1px solid #eee',
-            boxShadow: '0 2px 16px rgba(0,0,0,0.04)',
+            background: 'var(--bg)', borderRadius: 16,
+            padding: '2rem', border: '1px solid var(--border)',
+            boxShadow: 'var(--shadow-sm)',
           }}>
-            <h2 style={{ fontFamily: 'var(--font-archivo)', fontWeight: 800, fontSize: '1.3rem', color: '#1a1a1a', marginBottom: '1.5rem', paddingBottom: '0.75rem', borderBottom: '2px solid var(--teal2)', display: 'inline-block' }}>
+            <h2 style={{ fontFamily: 'var(--font-archivo)', fontWeight: 800, fontSize: '1.3rem', color: 'var(--white)', marginBottom: '1.5rem', paddingBottom: '0.75rem', borderBottom: '2px solid var(--emerald)', display: 'inline-block' }}>
               Uw gegevens
             </h2>
 
@@ -259,11 +259,11 @@ export default function OffertePage() {
 
           {/* Section: Werkzaamheden */}
           <div style={{
-            background: '#fff', borderRadius: 12,
-            padding: '2rem', border: '1px solid #eee',
-            boxShadow: '0 2px 16px rgba(0,0,0,0.04)',
+            background: 'var(--bg)', borderRadius: 16,
+            padding: '2rem', border: '1px solid var(--border)',
+            boxShadow: 'var(--shadow-sm)',
           }}>
-            <h2 style={{ fontFamily: 'var(--font-archivo)', fontWeight: 800, fontSize: '1.3rem', color: '#1a1a1a', marginBottom: '1.5rem', paddingBottom: '0.75rem', borderBottom: '2px solid var(--teal2)', display: 'inline-block' }}>
+            <h2 style={{ fontFamily: 'var(--font-archivo)', fontWeight: 800, fontSize: '1.3rem', color: 'var(--white)', marginBottom: '1.5rem', paddingBottom: '0.75rem', borderBottom: '2px solid var(--emerald)', display: 'inline-block' }}>
               Werkzaamheden
             </h2>
 
@@ -277,13 +277,13 @@ export default function OffertePage() {
                 onChange={e => setForm(p => ({ ...p, soortBouw: e.target.value }))}
               >
                 <option value="">— Selecteer —</option>
-                {SOORT_BOUW_OPTIONS.map(o => <option key={o} value={o}>{o}</option>)}
+                {SOORT_BOUW_OPTIONS.map(o => <option key={o} value={o} style={{ background: 'var(--bg)', color: 'var(--white)' }}>{o}</option>)}
               </select>
             </div>
 
             <div style={{ marginBottom: '1.5rem' }}>
               <label style={labelStyle}>Van welke diensten wilt u gebruik maken? *</label>
-              <p style={{ fontSize: '0.82rem', color: '#888', marginBottom: '0.75rem', fontFamily: 'var(--font-outfit)' }}>
+              <p style={{ fontSize: '0.82rem', color: 'var(--white3)', marginBottom: '0.75rem', fontFamily: 'var(--font-outfit)' }}>
                 Meerdere opties mogelijk
               </p>
               <div className="of-diensten-grid">
@@ -298,14 +298,14 @@ export default function OffertePage() {
                         alignItems: 'center',
                         gap: '0.6rem',
                         padding: '0.75rem 1rem',
-                        border: checked ? '2px solid var(--teal2)' : '1px solid #ddd',
+                        border: checked ? '2px solid var(--emerald)' : '1px solid var(--border2)',
                         borderRadius: 8,
                         cursor: 'pointer',
-                        background: checked ? 'rgba(255,217,53,0.06)' : '#f9f9f9',
+                        background: checked ? 'rgba(0, 122, 99, 0.06)' : 'var(--bg2)',
                         transition: 'border-color 0.2s, background 0.2s',
                         fontFamily: 'var(--font-outfit)',
                         fontSize: '0.9rem',
-                        color: '#1a1a1a',
+                        color: 'var(--white)',
                         userSelect: 'none',
                       }}
                     >
@@ -313,7 +313,7 @@ export default function OffertePage() {
                         type="checkbox"
                         checked={checked}
                         onChange={() => toggleDienst(d)}
-                        style={{ accentColor: 'var(--teal2)', width: 16, height: 16, flexShrink: 0 }}
+                        style={{ accentColor: 'var(--emerald)', width: 16, height: 16, flexShrink: 0 }}
                       />
                       {d}
                     </label>
@@ -350,11 +350,11 @@ export default function OffertePage() {
 
           {/* Section: Extra info */}
           <div style={{
-            background: '#fff', borderRadius: 12,
-            padding: '2rem', border: '1px solid #eee',
-            boxShadow: '0 2px 16px rgba(0,0,0,0.04)',
+            background: 'var(--bg)', borderRadius: 16,
+            padding: '2rem', border: '1px solid var(--border)',
+            boxShadow: 'var(--shadow-sm)',
           }}>
-            <h2 style={{ fontFamily: 'var(--font-archivo)', fontWeight: 800, fontSize: '1.3rem', color: '#1a1a1a', marginBottom: '1.5rem', paddingBottom: '0.75rem', borderBottom: '2px solid var(--teal2)', display: 'inline-block' }}>
+            <h2 style={{ fontFamily: 'var(--font-archivo)', fontWeight: 800, fontSize: '1.3rem', color: 'var(--white)', marginBottom: '1.5rem', paddingBottom: '0.75rem', borderBottom: '2px solid var(--emerald)', display: 'inline-block' }}>
               Aanvullende informatie
             </h2>
             <label style={labelStyle}>Opmerkingen of bijzonderheden</label>
@@ -367,7 +367,7 @@ export default function OffertePage() {
             />
 
             {/* Privacy note */}
-            <div style={{ marginTop: '1rem', display: 'flex', alignItems: 'flex-start', gap: '0.6rem', fontSize: '0.82rem', color: '#777', fontFamily: 'var(--font-outfit)' }}>
+            <div style={{ marginTop: '1rem', display: 'flex', alignItems: 'flex-start', gap: '0.6rem', fontSize: '0.82rem', color: 'var(--white3)', fontFamily: 'var(--font-outfit)' }}>
               <span style={{ fontSize: '1rem', flexShrink: 0 }}>🔒</span>
               <span>Uw gegevens zijn veilig bij ons en worden uitsluitend gebruikt voor het opstellen van uw offerte.</span>
             </div>
@@ -375,7 +375,7 @@ export default function OffertePage() {
 
           {/* Submit error */}
           {submitError && (
-            <p style={{ color: '#c0392b', fontFamily: 'var(--font-outfit)', fontSize: '0.9rem', margin: 0 }}>
+            <p style={{ color: '#e74c3c', fontFamily: 'var(--font-outfit)', fontSize: '0.9rem', margin: 0 }}>
               {submitError}
             </p>
           )}
@@ -386,10 +386,10 @@ export default function OffertePage() {
             disabled={loading}
             className="of-submit"
             style={{
-              background: 'var(--teal2)',
-              color: '#000',
+              background: 'var(--emerald)',
+              color: '#ffffff',
               padding: '1.1rem 2rem',
-              borderRadius: 6,
+              borderRadius: 8,
               border: 'none',
               fontFamily: 'var(--font-archivo)',
               fontWeight: 800,
@@ -409,34 +409,34 @@ export default function OffertePage() {
 
           {/* How it works card */}
           <div style={{
-            background: '#fff', borderRadius: 12, padding: '1.75rem',
-            border: '1px solid #eee', boxShadow: '0 2px 16px rgba(0,0,0,0.04)',
+            background: 'var(--bg)', borderRadius: 16, padding: '1.75rem',
+            border: '1px solid var(--border)', boxShadow: 'var(--shadow-sm)',
             marginBottom: '1.25rem',
           }}>
-            <h3 style={{ fontFamily: 'var(--font-archivo)', fontWeight: 800, fontSize: '1.1rem', color: '#1a1a1a', marginBottom: '1rem' }}>
+            <h3 style={{ fontFamily: 'var(--font-archivo)', fontWeight: 800, fontSize: '1.1rem', color: 'var(--white)', marginBottom: '1rem' }}>
               Hoe werkt het?
             </h3>
-            <p style={{ fontSize: '0.9rem', color: '#555', lineHeight: 1.65, fontFamily: 'var(--font-outfit)', marginBottom: '1rem' }}>
+            <p style={{ fontSize: '0.9rem', color: 'var(--white2)', lineHeight: 1.65, fontFamily: 'var(--font-outfit)', marginBottom: '1rem' }}>
               Door het formulier op deze pagina in te vullen, geeft u ons de benodigde informatie om een vrijblijvende offerte op maat te maken.
             </p>
-            <p style={{ fontSize: '0.85rem', color: '#555', lineHeight: 1.65, fontFamily: 'var(--font-outfit)', marginBottom: '0.5rem' }}>
+            <p style={{ fontSize: '0.85rem', color: 'var(--white2)', lineHeight: 1.65, fontFamily: 'var(--font-outfit)', marginBottom: '0.5rem' }}>
               <strong>Velden met een * zijn verplicht.</strong>
             </p>
-            <p style={{ fontSize: '0.85rem', color: '#555', lineHeight: 1.65, fontFamily: 'var(--font-outfit)', marginBottom: '0.5rem' }}>
+            <p style={{ fontSize: '0.85rem', color: 'var(--white2)', lineHeight: 1.65, fontFamily: 'var(--font-outfit)', marginBottom: '0.5rem' }}>
               We streven ernaar om binnen <strong>één werkdag</strong> een passende offerte retour te sturen.
             </p>
-            <p style={{ fontSize: '0.85rem', color: '#555', lineHeight: 1.65, fontFamily: 'var(--font-outfit)' }}>
+            <p style={{ fontSize: '0.85rem', color: 'var(--white2)', lineHeight: 1.65, fontFamily: 'var(--font-outfit)' }}>
               Soms is het nodig dat wij meer informatie nodig hebben. We nemen dan persoonlijk contact met u op voordat wij uw offerte retour sturen.
             </p>
           </div>
 
           {/* Steps */}
           <div style={{
-            background: '#fff', borderRadius: 12, padding: '1.75rem',
-            border: '1px solid #eee', boxShadow: '0 2px 16px rgba(0,0,0,0.04)',
+            background: 'var(--bg)', borderRadius: 16, padding: '1.75rem',
+            border: '1px solid var(--border)', boxShadow: 'var(--shadow-sm)',
             marginBottom: '1.25rem',
           }}>
-            <h3 style={{ fontFamily: 'var(--font-archivo)', fontWeight: 800, fontSize: '1.1rem', color: '#1a1a1a', marginBottom: '1.25rem' }}>
+            <h3 style={{ fontFamily: 'var(--font-archivo)', fontWeight: 800, fontSize: '1.1rem', color: 'var(--white)', marginBottom: '1.25rem' }}>
               Onze werkwijze
             </h3>
             {[
@@ -447,13 +447,13 @@ export default function OffertePage() {
               <div key={s.step} style={{ display: 'flex', gap: '1rem', marginBottom: '1rem', alignItems: 'flex-start' }}>
                 <div style={{
                   flexShrink: 0, width: 32, height: 32, borderRadius: '50%',
-                  background: 'var(--teal2)', display: 'flex', alignItems: 'center',
+                  background: 'var(--emerald)', display: 'flex', alignItems: 'center',
                   justifyContent: 'center', fontFamily: 'var(--font-archivo)',
-                  fontWeight: 800, fontSize: '0.85rem', color: '#000',
+                  fontWeight: 800, fontSize: '0.85rem', color: '#fff',
                 }}>{s.step}</div>
                 <div>
-                  <div style={{ fontFamily: 'var(--font-archivo)', fontWeight: 700, fontSize: '0.9rem', color: '#1a1a1a', marginBottom: '0.2rem' }}>{s.title}</div>
-                  <div style={{ fontSize: '0.82rem', color: '#777', fontFamily: 'var(--font-outfit)', lineHeight: 1.5 }}>{s.desc}</div>
+                  <div style={{ fontFamily: 'var(--font-archivo)', fontWeight: 700, fontSize: '0.9rem', color: 'var(--white)', marginBottom: '0.2rem' }}>{s.title}</div>
+                  <div style={{ fontSize: '0.82rem', color: 'var(--white3)', fontFamily: 'var(--font-outfit)', lineHeight: 1.5 }}>{s.desc}</div>
                 </div>
               </div>
             ))}
@@ -461,13 +461,14 @@ export default function OffertePage() {
 
           {/* Liever anders doen */}
           <div style={{
-            background: '#1a1a1a', borderRadius: 12, padding: '1.75rem',
+            background: 'var(--plum)', borderRadius: 16, padding: '1.75rem',
             color: '#fff',
+            border: '1px solid rgba(255,255,255,0.08)',
           }}>
-            <h3 style={{ fontFamily: 'var(--font-archivo)', fontWeight: 800, fontSize: '1.1rem', marginBottom: '0.75rem' }}>
+            <h3 style={{ fontFamily: 'var(--font-archivo)', fontWeight: 800, fontSize: '1.1rem', marginBottom: '0.75rem', color: '#fff' }}>
               Liever anders doen?
             </h3>
-            <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, fontFamily: 'var(--font-outfit)', marginBottom: '1.25rem' }}>
+            <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.6, fontFamily: 'var(--font-outfit)', marginBottom: '1.25rem' }}>
               Heeft u vragen of wilt u direct iemand spreken?
             </p>
             <a
@@ -476,8 +477,8 @@ export default function OffertePage() {
               rel="noopener noreferrer"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-                background: 'var(--teal2)', color: '#000',
-                padding: '0.8rem 1.5rem', borderRadius: 6,
+                background: 'var(--emerald)', color: '#fff',
+                padding: '0.8rem 1.5rem', borderRadius: 8,
                 textDecoration: 'none', fontFamily: 'var(--font-archivo)',
                 fontWeight: 800, fontSize: '0.9rem',
               }}
@@ -522,17 +523,17 @@ function PageShell({ children }: { children: React.ReactNode }) {
           .of-diensten-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
-      <div style={{ minHeight: '100vh', background: '#f5f5f5' }}>
+      <div style={{ minHeight: '100vh', background: 'var(--bg2)' }}>
         {/* Page header band */}
         <div className="of-header-band" style={{
-          background: '#1a1a1a',
+          background: 'var(--plum)',
         }}>
           <div style={{ maxWidth: 1100, margin: '0 auto' }}>
             {/* Breadcrumb */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', fontSize: '0.82rem', color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-outfit)' }}>
-              <a href="/" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>Home</a>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', fontSize: '0.82rem', color: 'rgba(255,255,255,0.6)', fontFamily: 'var(--font-outfit)' }}>
+              <a href="/" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none' }}>Home</a>
               <span>›</span>
-              <span style={{ color: 'var(--teal2)' }}>Offerte aanvragen</span>
+              <span style={{ color: 'var(--emerald)' }}>Offerte aanvragen</span>
             </div>
             <h1 style={{
               fontFamily: 'var(--font-archivo)', fontWeight: 800,
@@ -540,9 +541,9 @@ function PageShell({ children }: { children: React.ReactNode }) {
               lineHeight: 1.1, marginBottom: '0.75rem',
             }}>
               Vrijblijvende offerte<br />
-              <span style={{ color: 'var(--teal2)' }}>aanvragen</span>
+              <span style={{ color: 'var(--emerald)' }}>aanvragen</span>
             </h1>
-            <p style={{ color: 'rgba(255,255,255,0.65)', fontFamily: 'var(--font-outfit)', fontSize: '1rem', lineHeight: 1.6, maxWidth: 500 }}>
+            <p style={{ color: 'rgba(255,255,255,0.75)', fontFamily: 'var(--font-outfit)', fontSize: '1rem', lineHeight: 1.6, maxWidth: 500 }}>
               Vul het formulier in en ontvang binnen 1 werkdag een heldere offerte op maat — gratis en vrijblijvend.
             </p>
           </div>
