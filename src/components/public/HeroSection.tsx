@@ -1,15 +1,12 @@
-import { t, type Lang } from "@/lib/i18n";
+import { type Lang, t } from "@/lib/i18n";
 import { getContent } from "@/lib/content";
-import { getSiteText } from "@/lib/siteText";
 import ReviewBadges from "@/components/public/ReviewBadges";
 
-export default async function 
-HeroSection({ lang }: { lang: Lang }) {
-  const tr = t[lang].hero;
-  const tx = await getSiteText();
-  const wa = await getContent("whatsapp_number", "31630302033");
+const HERO_FALLBACK = "https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80";
 
-  // Hero background — managed via Admin → Afbeeldingen → Hero Achtergrond
+export default async function HeroSection({ lang }: { lang: Lang }) {
+  const trans = t[lang]?.hero || t.nl.hero;
+
   let heroBg = HERO_FALLBACK;
   try {
     const raw = await getContent('images:hero', '[]');
@@ -28,8 +25,7 @@ HeroSection({ lang }: { lang: Lang }) {
         alignItems: "center",
         justifyContent: "center",
         padding: "6rem 1rem 10rem",
-        backgroundImage:
-          'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url("https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80")',
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url("${heroBg}")`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -59,7 +55,7 @@ HeroSection({ lang }: { lang: Lang }) {
             textShadow: "0 4px 12px rgba(0,0,0,0.3)",
           }}
         >
-          BEST BEOORDEELDE <br />
+          {trans.headlineA} <br />
           <span
             style={{
               fontWeight: 700,
@@ -69,10 +65,10 @@ HeroSection({ lang }: { lang: Lang }) {
               textUnderlineOffset: "8px",
             }}
           >
-            STUKADOORS & SCHILDERS
+            {trans.headlineB}
           </span>{" "}
           <br />
-          VAN NEDERLAND!
+          {trans.h1c}
         </h1>
 
         {/* CTAs */}
@@ -103,7 +99,7 @@ HeroSection({ lang }: { lang: Lang }) {
               transition: "transform 0.2s, filter 0.2s",
             }}
           >
-            ONTVANG BINNEN 1 DAG UW OFFERTE!
+            {trans.getQuote}
           </a>
 
           <div
@@ -137,12 +133,12 @@ HeroSection({ lang }: { lang: Lang }) {
             >
               %
             </span>
-            TIJDELIJKE KORTING TOT 10%!
+            {trans.badge}
           </div>
         </div>
       </div>
 
-      {/* Trust Badges (managed via /admin/reviews-bar) */}
+      {/* Trust Badges */}
       <ReviewBadges />
     </section>
   );

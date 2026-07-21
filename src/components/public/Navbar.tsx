@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { t, type Lang } from "@/lib/i18n";
+import Image from "next/image";
 
 export default function Navbar({ lang }: { lang: Lang }) {
   const tr = t[lang].nav;
@@ -51,10 +52,10 @@ export default function Navbar({ lang }: { lang: Lang }) {
 
   const desktopLinks = [
     { label: "HOME", href: "/" },
-    { label: "OVER ONS", href: "/over-ons" },
-    { label: "ONZE DIENSTEN", href: "/onze-diensten", dropdown: services },
-    { label: "PORTFOLIO", href: "/projects" },
-    { label: "CONTACT", href: "/contact" },
+    { label: tr.about, href: "/over-ons" },
+    { label: tr.services, href: "/onze-diensten", dropdown: services },
+    { label: tr.ourWork, href: "/projects" },
+    { label: tr.contact, href: "/contact" },
   ];
 
   /* ── glassmorphism nav style ── */
@@ -88,9 +89,12 @@ export default function Navbar({ lang }: { lang: Lang }) {
               padding: "2px 0",
             }}
           >
-            <img
+            <Image
               src="/images/logo-removebg-preview.png"
               alt="LAMAR Stukadoor en Renovatie"
+              width={200}
+              height={64}
+              priority
               className="h-10 sm:h-12 md:h-16 w-auto object-contain transition-all duration-200"
               style={{ display: "block", maxWidth: "100%" }}
             />
@@ -447,9 +451,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
                         >
                           <path
                             d="M1 1L7 7L13 1"
-                            stroke={
-                              mobileServicesOpen ? "#007a63" : "#1A1A1A"
-                            }
+                            stroke={mobileServicesOpen ? "#007a63" : "#1A1A1A"}
                             strokeWidth="1.8"
                             strokeLinecap="round"
                             strokeLinejoin="round"

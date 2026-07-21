@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 export default function HomeContactForm() {
   const [loading, setLoading] = useState(false);
@@ -345,9 +346,11 @@ export default function HomeContactForm() {
               }}
             >
               <div style={{ width: 110, height: 80 }}>
-                <img
+                <Image
                   src="/rush-150x150.png"
                   alt="Snel en efficiënt"
+                  width={150}
+                  height={150}
                   style={{
                     width: "100%",
                     height: "100%",
@@ -382,9 +385,11 @@ export default function HomeContactForm() {
               }}
             >
               <div style={{ width: 100, height: 90 }}>
-                <img
+                <Image
                   src="/transparent-size-icon-real-estate-icon-measurement-icon-5fb3244b4c56c50929056516055757553127-282x300.png"
                   alt="Grote en kleine klussen"
+                  width={282}
+                  height={300}
                   style={{
                     width: "100%",
                     height: "100%",
@@ -417,9 +422,11 @@ export default function HomeContactForm() {
               }}
             >
               <div style={{ width: 100, height: 90 }}>
-                <img
+                <Image
                   src="/customer-service-150x150.png"
                   alt="1 op 1 begeleiding"
+                  width={150}
+                  height={150}
                   style={{
                     width: "100%",
                     height: "100%",

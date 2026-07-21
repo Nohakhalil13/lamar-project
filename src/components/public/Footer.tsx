@@ -1,6 +1,8 @@
 import { getContentMany } from "@/lib/content";
 import { getSiteText } from "@/lib/siteText";
 import { t, type Lang } from "@/lib/i18n";
+import Link from "next/link";
+import Image from "next/image";
 
 const fallbacks: Record<string, string> = {
   contact_phone: "06 30302033",
@@ -159,12 +161,16 @@ export default async function Footer({ lang }: { lang: Lang }) {
         {/* Brand + contact */}
         <div>
           <div style={{ marginBottom: "1.25rem" }}>
-            <img
-              src="/images/logo-removebg-preview.png"
-              alt="LAMAR Stukadoor en Renovatie"
-              className="h-10 sm:h-12 md:h-16 w-auto object-contain transition-all duration-200"
-              style={{ display: "block", maxWidth: "100%" }}
-            />
+            <Link href="/" className="flex items-center text-decoration-none">
+              <Image
+                src="/images/logo-removebg-preview.png"
+                alt="LAMAR Stukadoor en Renovatie"
+                width={200}
+                height={64}
+                priority
+                className="h-10 sm:h-12 md:h-16 w-auto object-contain transition-all duration-200"
+              />
+            </Link>
           </div>
           <div
             style={{
