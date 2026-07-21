@@ -92,10 +92,10 @@ export default function Navbar({ lang }: { lang: Lang }) {
             <Image
               src="/images/logo-main.png"
               alt="LAMAR Stukadoor en Renovatie"
-              width={200}
-              height={64}
+              width={240}
+              height={77}
               priority
-              className="h-10 sm:h-12 md:h-16 w-auto object-contain transition-all duration-200"
+              className="h-14 sm:h-16 md:h-20 w-auto object-contain transition-all duration-200"
               style={{ display: "block", maxWidth: "100%" }}
             />
           </Link>
@@ -284,14 +284,12 @@ export default function Navbar({ lang }: { lang: Lang }) {
         >
           <Link
             href="/#offerte"
-            className="inline-block"
+            className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-2.5 text-xs sm:text-sm md:text-base"
             style={{
               background: "#007a63",
               color: "#FFFFFF",
-              padding: "0.7rem 1.6rem",
               borderRadius: 4,
               textDecoration: "none",
-              fontSize: "0.85rem",
               fontWeight: 800,
               letterSpacing: "0.02em",
               fontFamily: "var(--font-outfit)",

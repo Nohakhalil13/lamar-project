@@ -6,12 +6,14 @@ import { staticProjects } from '@/lib/staticProjects'
 export default async function ProjectsSlider({ lang }: { lang: Lang }) {
   const tr = t[lang].projectsPage
   
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let dbProjects: any[] = []
   try {
     dbProjects = await prisma.project.findMany({
       where: { published: true },
       orderBy: { order: 'asc' },
     })
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (err) {
     // Graceful fallback if DB is unreachable during build
   }
