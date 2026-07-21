@@ -61,8 +61,8 @@ export default async function RootLayout({
   const wa = await getContent('whatsapp_number', '31630302033')
   // We can fetch theme, but we will enforce our new elegant palette by default
   const theme = await getTheme()
-  const primaryColor = '#1A1C20';
-  const accentColor = '#ffd935'; // The Vanibra yellow
+  const primaryColor = theme.primary
+  const accentColor = theme.accent
 
   const jsonLd = {
     '@context': 'https://schema.org',

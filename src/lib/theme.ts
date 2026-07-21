@@ -1,7 +1,7 @@
 // Client-safe theme constants and helpers (no server-only imports).
 // The server-side loader lives in `@/lib/themeServer`.
 
-export const THEME_DEFAULTS = { primary: '#1A1A1A', accent: '#FFD935' }
+export const THEME_DEFAULTS = { primary: '#1a6b8c', accent: '#2596be' }
 export const THEME_KEYS = ['theme_primary', 'theme_accent']
 
 const HEX = /^#[0-9a-fA-F]{6}$/

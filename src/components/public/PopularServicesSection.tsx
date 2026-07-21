@@ -49,8 +49,8 @@ export default async function PopularServicesSection({ lang }: { lang: Lang }) {
               <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(0,0,0,0.3)', zIndex: 1 }} />
 
               <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', padding: '2rem' }}>
-                {/* Yellow Box for Title */}
-                <div style={{ background: 'var(--teal2)', color: '#1A1A1A', padding: '0.75rem 2rem', fontFamily: 'var(--font-outfit)', fontWeight: 600, fontSize: '1.4rem', width: '90%', textAlign: 'center', borderRadius: 8, boxShadow: '0 4px 15px rgba(0,0,0,0.2)' }}>
+                {/* Accent Box for Title */}
+                <div style={{ background: 'var(--teal2)', color: '#FFFFFF', padding: '0.75rem 2rem', fontFamily: 'var(--font-outfit)', fontWeight: 600, fontSize: '1.4rem', width: '90%', textAlign: 'center', borderRadius: 8, boxShadow: '0 4px 15px rgba(0,0,0,0.2)' }}>
                   {svc.title}
                 </div>
                 

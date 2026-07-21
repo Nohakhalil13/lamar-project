@@ -9,6 +9,14 @@ HeroSection({ lang }: { lang: Lang }) {
   const tx = await getSiteText();
   const wa = await getContent("whatsapp_number", "31630302033");
 
+  // Hero background — managed via Admin → Afbeeldingen → Hero Achtergrond
+  let heroBg = HERO_FALLBACK;
+  try {
+    const raw = await getContent('images:hero', '[]');
+    const urls: string[] = JSON.parse(raw);
+    if (urls[0]) heroBg = urls[0];
+  } catch { /* keep fallback */ }
+
   return (
     <section
       id="hero"

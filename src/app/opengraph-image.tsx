@@ -7,8 +7,8 @@ export const contentType = 'image/png'
 
 // Brand colours — kept in sync with the live theme set in `app/layout.tsx`
 // (`--teal` / `--teal2`) rather than the retired purple/teal identity.
-const INK = '#1A1C20'
-const ACCENT = '#ffd935'
+const INK = '#1a6b8c'
+const ACCENT = '#2596be'
 
 export default function OpengraphImage() {
   return new ImageResponse(

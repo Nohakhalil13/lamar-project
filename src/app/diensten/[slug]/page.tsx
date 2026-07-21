@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import { servicesData } from '@/lib/servicesData';
+import { getContent } from '@/lib/content';
 import Navbar from '@/components/public/Navbar';
 import Footer from '@/components/public/Footer';
 import Link from 'next/link';
@@ -21,8 +22,20 @@ export default async function ServicePage(props: { params: Promise<{ slug: strin
 
   const lang = 'nl' as const;
 
+  // ── Images from admin → Afbeeldingen → Diensten ────────────────────────
+  let dienstImages: string[] = [];
+  try {
+    const raw = await getContent(`images:dienst:${service.slug}`, '[]');
+    dienstImages = JSON.parse(raw);
+  } catch { /**/ }
+
+  // Use DB images if available, fall back to static servicesData
+  const galleryImages = dienstImages.length > 0 ? dienstImages : service.gallery;
+  const headerImage   = dienstImages[0] || service.whatIsIt?.image || '/images/PHOTO-2024-01-06-19-24-18.jpg';
+  // ─────────────────────────────────────────────────────────────────────────
+
   // Use the service's whatIsIt image or fallback to a default
-  const bgImage = service.whatIsIt?.image || '/images/PHOTO-2024-01-06-19-24-18.jpg';
+  const bgImage = headerImage;
 
   return (
     <>
@@ -60,7 +73,7 @@ export default async function ServicePage(props: { params: Promise<{ slug: strin
             </div>
             <div style={{ borderRadius: 16, overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={service.whatIsIt.image} alt={service.whatIsIt.title} style={{ width: '100%', height: 'auto', display: 'block' }} />
+              <img src={headerImage} alt={service.whatIsIt.title} style={{ width: '100%', height: 'auto', display: 'block' }} />
             </div>
           </div>
         </section>
@@ -111,7 +124,7 @@ export default async function ServicePage(props: { params: Promise<{ slug: strin
               Projecten
             </h2>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
-              {service.gallery.map((img, i) => (
+              {galleryImages.map((img, i) => (
                 <div key={i} style={{ borderRadius: 16, overflow: 'hidden', aspectRatio: '4/3' }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={img} alt={`${service.title} project`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
