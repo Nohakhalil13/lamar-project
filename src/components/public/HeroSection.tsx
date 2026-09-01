@@ -70,7 +70,7 @@ export default async function HeroSection({ lang }: { lang: Lang }) {
             {tx('home_hero_headline_b') || trans.headlineB}
           </span>{" "}
           <br />
-          {trans.h1c}
+          {tx('home_hero_headline_c') || trans.h1c}
         </h1>
 
         {/* CTAs */}

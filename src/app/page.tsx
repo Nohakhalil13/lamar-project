@@ -38,15 +38,15 @@ export default async function Home() {
   // ─────────────────────────────────────────────────────────────────────────
 
   const stucwerkServices: ServiceItem[] = [
-    { title: 'Stucwerk', price: 'Vanaf €16 m²', href: '/diensten/stucwerk' },
-    { title: 'Dunpleister', price: 'Vanaf €12 m²', href: '/diensten/dunpleister' },
-    { title: 'Reparatiewerk', price: 'Vanaf €250', href: '/diensten/reparatiewerk' },
+    { title: tx('home_services_stuc_card1_title') || 'Stucwerk',      price: tx('home_services_stuc_card1_price') || 'Vanaf €16 m²', href: '/diensten/stucwerk' },
+    { title: tx('home_services_stuc_card2_title') || 'Dunpleister',   price: tx('home_services_stuc_card2_price') || 'Vanaf €12 m²', href: '/diensten/dunpleister' },
+    { title: tx('home_services_stuc_card3_title') || 'Reparatiewerk', price: tx('home_services_stuc_card3_price') || 'Vanaf €250',       href: '/diensten/reparatiewerk' },
   ];
 
   const schilderwerkServices: ServiceItem[] = [
-    { title: 'Schilderwerk', price: 'Vanaf €11 m²', href: '/diensten/schilderwerk' },
-    { title: 'Latex spuiten', price: 'Vanaf €11 m²', href: '/diensten/latex-spuiten' },
-    { title: 'Schilderwerk (hout)', price: 'Prijs per object', href: '/diensten/schilderwerk-hout' },
+    { title: tx('home_services_schilder_card1_title') || 'Schilderwerk',       price: tx('home_services_schilder_card1_price') || 'Vanaf €11 m²', href: '/diensten/schilderwerk' },
+    { title: tx('home_services_schilder_card2_title') || 'Latex spuiten',      price: tx('home_services_schilder_card2_price') || 'Vanaf €11 m²', href: '/diensten/latex-spuiten' },
+    { title: tx('home_services_schilder_card3_title') || 'Schilderwerk (hout)', price: tx('home_services_schilder_card3_price') || 'Prijs per object',    href: '/diensten/schilderwerk-hout' },
   ];
 
   return (
@@ -60,8 +60,8 @@ export default async function Home() {
 
         {/* Service Section 1 */}
         <ServiceGroupSection 
-          heading="Stukadoorswerk" 
-          subheading="Strakke wanden en plafonds, perfect afgewerkt."
+          heading={tx('home_services_stuc_heading') || 'Stukadoorswerk'} 
+          subheading={tx('home_services_stuc_sub') || 'Strakke wanden en plafonds, perfect afgewerkt.'}
           services={stucwerkServices} 
           startIndex={0}
           images={stucImages}
@@ -69,8 +69,8 @@ export default async function Home() {
 
         {/* Service Section 2 */}
         <ServiceGroupSection 
-          heading="Schilderwerk" 
-          subheading="Kwalitatief schilderwerk voor binnen en buiten."
+          heading={tx('home_services_schilder_heading') || 'Schilderwerk'} 
+          subheading={tx('home_services_schilder_sub') || 'Kwalitatief schilderwerk voor binnen en buiten.'}
           services={schilderwerkServices} 
           startIndex={3}
           images={schilderImages}
@@ -82,13 +82,34 @@ export default async function Home() {
         {/* Review Bar — تم حذف النسخة المكررة */}
 
         {/* Why Choose Us — after portfolio */}
-        <WhyChooseUsSection />
+        <WhyChooseUsSection
+          pill={tx('home_whychooseus_pill') || undefined}
+          headingA={tx('home_whychooseus_heading_a') || undefined}
+          headingB={tx('home_whychooseus_heading_b') || undefined}
+          sub={tx('home_whychooseus_sub') || undefined}
+          cards={[
+            { title: tx('home_whychooseus_card1_title') || 'Betrouwbaarheid', text: tx('home_whychooseus_card1_text') || 'Wij houden ons altijd aan onze beloften — met eerlijkheid, verantwoordelijkheid en respect voor uw rechten.' },
+            { title: tx('home_whychooseus_card2_title') || 'Initiatief',       text: tx('home_whychooseus_card2_text') || 'De geest van initiatief drijft ons team aan — snelle actie, voortdurende innovatie en het benutten van duurzame kansen.' },
+            { title: tx('home_whychooseus_card3_title') || 'Kwaliteit',        text: tx('home_whychooseus_card3_text') || 'Wij realiseren kwaliteit op de hoogste standaard — met precisie, vakmanschap en toewijding aan de technische normen.' },
+            { title: tx('home_whychooseus_card4_title') || 'Klantgerichtheid', text: tx('home_whychooseus_card4_text') || 'Uw tevredenheid staat centraal. Wij luisteren naar uw wensen en zorgen voor een persoonlijke aanpak bij elk project.' },
+          ]}
+        />
 
         {/* FAQ Accordion */}
         <FAQSection lang={lang} heading={faqHeading} items={faqItems} />
 
         {/* Offerte aanvraag Form */}
-        <HomeContactForm />
+        <HomeContactForm
+          heading={tx('home_quoteform_heading') || undefined}
+          sub={tx('home_quoteform_sub') || undefined}
+          badge={tx('home_quoteform_badge') || undefined}
+          feat1Plain={tx('home_quoteform_feat1_plain') || undefined}
+          feat1Bold={tx('home_quoteform_feat1_bold') || undefined}
+          feat2Plain={tx('home_quoteform_feat2_plain') || undefined}
+          feat2Bold={tx('home_quoteform_feat2_bold') || undefined}
+          feat3Plain={tx('home_quoteform_feat3_plain') || undefined}
+          feat3Bold={tx('home_quoteform_feat3_bold') || undefined}
+        />
       </main>
       <Footer lang={lang} />
       <RevealObserver />

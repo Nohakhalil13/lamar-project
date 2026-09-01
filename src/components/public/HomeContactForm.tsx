@@ -3,7 +3,27 @@
 import { useState } from "react";
 import Image from "next/image";
 
-export default function HomeContactForm() {
+export default function HomeContactForm({
+  heading,
+  sub,
+  badge,
+  feat1Plain,
+  feat1Bold,
+  feat2Plain,
+  feat2Bold,
+  feat3Plain,
+  feat3Bold,
+}: {
+  heading?: string
+  sub?: string
+  badge?: string
+  feat1Plain?: string
+  feat1Bold?: string
+  feat2Plain?: string
+  feat2Bold?: string
+  feat3Plain?: string
+  feat3Bold?: string
+}) {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
@@ -109,7 +129,7 @@ export default function HomeContactForm() {
               margin: 0,
             }}
           >
-            Offerte aanvraag
+            {heading || "Offerte aanvraag"}
           </h2>
           <div
             style={{
@@ -130,7 +150,7 @@ export default function HomeContactForm() {
               lineHeight: 1.6,
             }}
           >
-            Laat hier uw bericht achter. Wij komen dezelfde dag nog bij u terug!
+            {sub || "Laat hier uw bericht achter. Wij komen dezelfde dag nog bij u terug!"}
           </p>
         </div>
 
@@ -181,7 +201,7 @@ export default function HomeContactForm() {
               >
                 %
               </span>
-              TIJDELIJKE KORTING TOT 10%!
+              {badge || "TIJDELIJKE KORTING TOT 10%!"}
             </div>
 
             <div
@@ -367,9 +387,9 @@ export default function HomeContactForm() {
                   lineHeight: 1.5,
                 }}
               >
-                Snel en efficiënt,{" "}
+                {feat1Plain || "Snel en efficiënt,"}{" "}
                 <strong style={{ color: "#1A1A1A" }}>
-                  ZONDER wachttijden!
+                  {feat1Bold || "ZONDER wachttijden!"}
                 </strong>
               </p>
             </div>
@@ -406,8 +426,8 @@ export default function HomeContactForm() {
                   lineHeight: 1.5,
                 }}
               >
-                Zowel grote, als{" "}
-                <strong style={{ color: "#1A1A1A" }}>kleine klussen.</strong>
+                {feat2Plain || "Zowel grote, als"}{" "}
+                <strong style={{ color: "#1A1A1A" }}>{feat2Bold || "kleine klussen."}</strong>
               </p>
             </div>
 
@@ -443,9 +463,9 @@ export default function HomeContactForm() {
                   lineHeight: 1.5,
                 }}
               >
-                1 op 1 begeleiding{" "}
+                {feat3Plain || "1 op 1 begeleiding"}{" "}
                 <strong style={{ color: "#1A1A1A" }}>
-                  gedurende het hele traject.
+                  {feat3Bold || "gedurende het hele traject."}
                 </strong>
               </p>
             </div>

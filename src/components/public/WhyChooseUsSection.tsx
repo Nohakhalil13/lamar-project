@@ -2,7 +2,9 @@
 
 import { useEffect, useRef } from "react";
 
-const reasons = [
+type WcuCard = { title: string; text: string; icon: React.ReactNode }
+
+const defaultReasons: WcuCard[] = [
   {
     icon: (
       <svg
@@ -85,7 +87,7 @@ function ReasonCard({
   reason,
   index,
 }: {
-  reason: (typeof reasons)[0];
+  reason: WcuCard;
   index: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -168,7 +170,24 @@ function ReasonCard({
   );
 }
 
-export default function WhyChooseUsSection() {
+export default function WhyChooseUsSection({
+  pill,
+  headingA,
+  headingB,
+  sub,
+  cards,
+}: {
+  pill?: string
+  headingA?: string
+  headingB?: string
+  sub?: string
+  cards?: { title: string; text: string }[]
+}) {
+  const reasons: WcuCard[] = defaultReasons.map((d, i) => ({
+    ...d,
+    title: cards?.[i]?.title || d.title,
+    text:  cards?.[i]?.text  || d.text,
+  }))
   const headingRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -239,7 +258,7 @@ export default function WhyChooseUsSection() {
                 color: "var(--emerald)",
               }}
             >
-              Waarom kiezen voor ons?
+              {pill || 'Waarom kiezen voor ons?'}
             </span>
           </div>
 
@@ -256,8 +275,8 @@ export default function WhyChooseUsSection() {
               margin: "0 auto 1rem",
             }}
           >
-            Onze waarden zijn de{" "}
-            <span style={{ color: "var(--emerald)" }}>kern van ons succes</span>
+            {headingA || 'Onze waarden zijn de'}{" "}
+            <span style={{ color: "var(--emerald)" }}>{headingB || 'kern van ons succes'}</span>
           </h2>
 
           <p
@@ -271,8 +290,7 @@ export default function WhyChooseUsSection() {
               fontWeight: 400,
             }}
           >
-            Bij Lamar hechten wij grote waarde aan eerlijkheid, kwaliteit en
-            persoonlijk contact — in elk project dat wij uitvoeren.
+            {sub || 'Bij Lamar hechten wij grote waarde aan eerlijkheid, kwaliteit en persoonlijk contact — in elk project dat wij uitvoeren.'}
           </p>
         </div>
 
