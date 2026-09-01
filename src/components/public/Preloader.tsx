@@ -36,10 +36,10 @@ export default function Preloader() {
     >
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.25rem' }}>
         <img
-          src="/lamar_icon.svg"
+          src="/lamar-logo-splash.png"
           alt="Lamar Loading"
           style={{
-            height: 54,
+            height: 110,
             width: 'auto',
             animation: 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
           }}
