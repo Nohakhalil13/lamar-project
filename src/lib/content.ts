@@ -1,4 +1,5 @@
 import { prisma } from '@/lib/prisma'
+import { randomUUID } from 'crypto'
 
 /**
  * Default Dutch "Over ons" / About copy. Shared between the public page and the
@@ -39,13 +40,19 @@ export async function getContentMany(
  */
 export async function setContentKeys(entries: Record<string, string>): Promise<void> {
   const keys = Object.keys(entries)
-  await prisma.$transaction(
-    keys.map((key) =>
-      prisma.content.upsert({
-        where: { key },
-        update: { value: entries[key] },
-        create: { key, value: entries[key] },
-      })
-    )
+  if (keys.length === 0) return
+
+  const values: any[] = []
+  const placeholders = keys
+    .map((key, i) => {
+      values.push(randomUUID(), key, entries[key])
+      const offset = i * 3
+      return `($${offset + 1}, $${offset + 2}, $${offset + 3})`
+    })
+    .join(', ')
+
+  await prisma.$executeRawUnsafe(
+    `INSERT INTO "Content" ("id", "key", "value") VALUES ${placeholders} ON CONFLICT ("key") DO UPDATE SET "value" = EXCLUDED."value";`,
+    ...values
   )
 }
