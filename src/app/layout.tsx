@@ -23,10 +23,6 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   alternates: { canonical: '/' },
-  icons: {
-    icon: '/lamar_icon.svg',
-    shortcut: '/lamar_icon.svg',
-  },
   title: {
     default: 'LAMAR Stukadoor en Onderhoud | Gipswerk, Decoratie & Renovatie',
     template: '%s | LAMAR Stukadoor en Onderhoud',
